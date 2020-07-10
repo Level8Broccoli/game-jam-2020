@@ -6,8 +6,8 @@ const fillBagRandomly = (bag) => {
   let icons = ['forward-sun', 'minerals', 'nautilus-shell', 'ninja-star', 'ore', 'dragon-head'];
   let counter = 10;
   while (counter > 0) {
-    icons = icons.sort(() => .5 - Math.random());
-    const action = new Action(counter, `Action ${counter--}`, icons[0]);
+    const randomIndex = Math.floor(Math.random() * icons.length);
+    const action = new Action(counter, `Action ${counter--}`, icons[randomIndex]);
     bag.add(action);
   }
 };
