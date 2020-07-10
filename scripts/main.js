@@ -1,5 +1,6 @@
 import Bag from './Bag.js';
 import Action from './Action.js';
+import Hand from './Hand.js';
 
 const fillBagRandomly = (bag) => {
   let icons = ['forward-sun', 'minerals', 'nautilus-shell', 'ninja-star', 'ore', 'dragon-head'];
@@ -13,13 +14,9 @@ const fillBagRandomly = (bag) => {
 
 const pullFromBag = (n = 1) => {
   while (n > 0 && !bag.isEmpty()) {
-    pulled.push(bag.pull());
+    hand.add(bag.pull());
     n--;
   }
-};
-
-const removeById = (id) => {
-  pulled = pulled.filter(action => action.id !== id);
 };
 
 const drawAction = (action, container, className, listener) => {
@@ -36,7 +33,7 @@ const drawAction = (action, container, className, listener) => {
   picture.append(paragraph);
   if (listener) {
     picture.addEventListener('click', () => {
-      removeById(action.id);
+      hand.removeById(action.id);
       pullFromBag();
       updateUi();
     });
@@ -55,13 +52,13 @@ const updateUi = () => {
   const pulledContents = document.querySelector('.pulledContents');
   pulledContents.innerHTML = '';
 
-  pulled.forEach(action => {
+  hand.contents.forEach(action => {
     drawAction(action, pulledContents, 'outside', true);
   });
 };
 
 const bag = new Bag();
-let pulled = [];
+const hand = new Hand();
 fillBagRandomly(bag);
 pullFromBag(3);
 updateUi();
