@@ -1,0 +1,16 @@
+.bagContents, .pulledContents {
+  display: flex;
+}
+
+.action {
+  margin-right: 5px;
+  width: 50px;
+}
+
+.inside {
+  filter: invert(1) opacity(.5);
+}
+
+.hidden {
+  display: none;
+}
