@@ -1,5 +1,6 @@
 .bagContents, .pulledContents {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .action {
