@@ -60,10 +60,18 @@ const updateDisasters = (node, disasters) => {
             img.classList.add('possibleDrop');
             img.addEventListener('click', () => {
               solution.addSelectedMarble();
-              GameState.selectedMarble.use();
+              GameState.selectedMarble.useIn(task);
               GameState.removeSelectedMarble();
               updateUi();
             });
+          }
+        } else {
+          img.addEventListener('click', () => {
+            GameState.selectMarble(task.marble);
+            updateUi();
+          });
+          if (task.marble.isSelected) {
+            img.classList.add('selected');
           }
         }
         div.append(img);

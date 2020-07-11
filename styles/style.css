@@ -29,6 +29,10 @@ main>div {
   filter: opacity(.8);
 }
 
+.tasks :not(.empty) {
+  cursor: pointer;
+}
+
 .upcoming img {
   filter: invert(1) opacity(.5);
 }
@@ -42,7 +46,8 @@ main>div {
   border: 5px solid black;
 }
 
-.ready .selected img {
+.ready .selected img,
+.tasks .selected img {
   border-color: lightcoral;
 }
 
