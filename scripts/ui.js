@@ -39,7 +39,7 @@ const updateDisasters = (node, disasters) => {
   assertType(disasters, Array);
 
   node.textContent = '';
-  disasters.forEach(disaster => {
+  disasters.filter(disaster => !disaster.finished).forEach(disaster => {
     assertType(disaster, Disaster);
 
     const heading = document.createElement('h4');
@@ -72,8 +72,7 @@ const updateDisasters = (node, disasters) => {
             img.classList.add('possibleDrop');
             img.addEventListener('click', () => {
               solution.addSelectedMarble();
-              GameState.getRessources().useMarble(selectedMarble.id);
-              GameState.getRessources().readyMarble();
+              selectedMarble.use();
               updateUi();
             });
           }

@@ -23,10 +23,15 @@ export default class Resources {
     this.checkForReshuffling();
   }
 
-  readyMarble(id) {
-    if (!id) {
-      id = this.getRandomId(this.upcoming);
+  readyRandomMarbles(n) {
+    assertType(n, Number);
+    for (let i = 0; i < n; i++) {
+      const randomId = this.getRandomId(this.upcoming);
+      this.readyMarble(randomId);
     }
+  }
+
+  readyMarble(id) {
     assertType(id, Number);
     this.moveFromUpcomingToReady(id);
   }
@@ -39,6 +44,16 @@ export default class Resources {
   moveFromUpcomingToReady(id) {
     assertType(id, Number);
     this.move(id, this.upcoming, this.ready);
+  }
+
+  moveFromInUseToUsed(id) {
+    assertType(id, Number);
+    this.move(id, this.inUse, this.used);
+  }
+
+  moveFromReadyToInUse(id) {
+    assertType(id, Number);
+    this.move(id, this.ready, this.inUse);
   }
 
   useMarble(id) {

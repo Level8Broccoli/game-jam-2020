@@ -81,5 +81,11 @@ export default class GameState {
   static nextRound() {
     timer.nextRound();
     this.removeSelectedMarble();
+    disasters.forEach(disaster => {
+      if (disaster.isAverted()) {
+        disaster.end();
+      }
+    });
+    resources.readyRandomMarbles(3);
   }
 }

@@ -1,5 +1,8 @@
-import { assertType } from './asserts.js';
+import {
+  assertType
+} from './asserts.js';
 import GameChanger from './GameChanger.js';
+import Solution from './Solution.js';
 
 export default class Disaster {
   constructor(description, solutions, countdown, consequence) {
@@ -13,5 +16,27 @@ export default class Disaster {
     this.solutions = solutions;
     this.countdown = countdown;
     this.consequence = consequence;
+    this.finished = false;
+  }
+
+  isAverted() {
+    let flag = false;
+    this.solutions.forEach(solution => {
+      assertType(solution, Solution);
+
+      if (solution.isFinished()) {
+        solution.giveReward();
+        flag = true;
+      }
+    });
+    return flag;
+  }
+
+  end() {
+    this.finished = true;
+    this.solutions.forEach(solution => {
+      assertType(solution, Solution);
+      solution.removeMarbles();
+    });
   }
 }

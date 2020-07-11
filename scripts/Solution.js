@@ -1,7 +1,19 @@
 import GameState from './GameState.js';
+import {
+  assertType
+} from './asserts.js';
+import {
+  TaskList
+} from './Task.js';
+import GameChanger from './GameChanger.js';
+import Logger from './Logger.js';
 
 export default class Solution {
   constructor(description, task, reward) {
+    assertType(description, String);
+    assertType(task, TaskList);
+    assertType(reward, GameChanger);
+
     this.description = description;
     this.task = task;
     this.reward = reward;
@@ -11,5 +23,24 @@ export default class Solution {
     const selectedMarble = GameState.getSelectedMarble();
     this.task.addSelectedMarble(selectedMarble);
     GameState.removeSelectedMarble();
+  }
+
+  isFinished() {
+    return !this.task.isInProgress();
+  }
+
+  removeMarbles() {
+    console.log(this);
+    this.task.list.forEach(task => {
+      console.log(task.marble);
+      if (task.marble) {
+        task.marble.remove();
+      }
+      // task.empty = true;
+    });
+  }
+
+  giveReward() {
+    Logger.log('give reward', this.description);
   }
 }

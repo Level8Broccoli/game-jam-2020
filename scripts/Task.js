@@ -44,4 +44,14 @@ export class TaskList {
     });
     task.addMarble(marble);
   }
+
+  isInProgress() {
+    let flag = false;
+    this.list.forEach(task => {
+      if (task.empty) {
+        flag = true;
+      }
+    });
+    return flag;
+  }
 }

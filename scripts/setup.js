@@ -25,10 +25,7 @@ export const initResources = (res, marbleCount, readyCount) => {
     res.upcoming.push(marble);
     marbleCount--;
   }
-  while (readyCount > 0) {
-    res.readyMarble();
-    readyCount--;
-  }
+  res.readyRandomMarbles(readyCount);
 };
 
 export const initDisasters = () => {
@@ -46,10 +43,19 @@ export const initDisasters = () => {
     type: MarbleC
   }]), new GameChanger());
   solutions.push(solution2);
+  const solution3 = new Solution('new', new TaskList([{
+    count: 7,
+    type: MarbleB
+  }, {
+    count: 5,
+    type: MarbleC
+  }]), new GameChanger());
+  solutions.push(solution3);
 
   const disasters = [];
   const disaster = new Disaster('Paris is buring', solutions, 3, new GameChanger());
-  disasters.push(disaster);
+  const disaster2 = new Disaster('Paris is buring', solutions, 3, new GameChanger());
+  disasters.push(disaster, disaster2);
 
   return disasters;
 };

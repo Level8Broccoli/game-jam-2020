@@ -33,6 +33,16 @@ export default class Marble {
     this.isSelected = false;
   }
 
+  use() {
+    const res = GameState.getRessources();
+    res.moveFromReadyToInUse(this.id);
+  }
+
+  remove() {
+    const res = GameState.getRessources();
+    res.moveFromInUseToUsed(this.id);
+  }
+
   getState() {
     const res = GameState.getRessources();
     return res.getState(this.id);
