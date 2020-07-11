@@ -1,4 +1,4 @@
-import GameState from './GameState.js';
+import * as GameState  from './GameState.js';
 import {
   assertType
 } from './asserts.js';
@@ -20,8 +20,7 @@ export default class Solution {
   }
 
   addSelectedMarble() {
-    const selectedMarble = GameState.getSelectedMarble();
-    this.task.addSelectedMarble(selectedMarble);
+    this.task.addSelectedMarble(GameState.selectMarble);
     GameState.removeSelectedMarble();
   }
 

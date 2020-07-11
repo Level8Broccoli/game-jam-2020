@@ -4,7 +4,7 @@ import {
 import {
   assertType
 } from '../asserts.js';
-import GameState from '../GameState.js';
+import * as GameState from '../GameState.js';
 
 export default class Marble {
   constructor(id, name, icon) {
@@ -34,17 +34,14 @@ export default class Marble {
   }
 
   use() {
-    const res = GameState.getRessources();
-    res.moveFromReadyToInUse(this.id);
+    GameState.resources.moveFromReadyToInUse(this.id);
   }
 
   remove() {
-    const res = GameState.getRessources();
-    res.moveFromInUseToUsed(this.id);
+    GameState.resources.moveFromInUseToUsed(this.id);
   }
 
   getState() {
-    const res = GameState.getRessources();
-    return res.getState(this.id);
+    return GameState.resources.getState(this.id);
   }
 }
