@@ -5,7 +5,7 @@ import {
 } from './asserts.js';
 import Marble from './marbles/Marble.js';
 
-class Task {
+export class Task {
   constructor(type) {
     assertSubclass(type, Marble);
     this.type = type;
@@ -16,6 +16,12 @@ class Task {
     assertInheritance(marble, Marble);
     this.empty = false;
     this.marble = marble;
+  }
+
+  removeMarble(marble) {
+    assertInheritance(marble, Marble);
+    this.empty = true;
+    this.marble = null;
   }
 }
 

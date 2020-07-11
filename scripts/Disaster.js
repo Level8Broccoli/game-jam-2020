@@ -3,6 +3,7 @@ import {
 } from './asserts.js';
 import GameChanger from './GameChanger.js';
 import Solution from './Solution.js';
+import * as GameState from './GameState.js';
 
 export default class Disaster {
   constructor(description, solutions, countdown, consequence) {
@@ -17,6 +18,7 @@ export default class Disaster {
     this.countdown = countdown;
     this.consequence = consequence;
     this.finished = false;
+    GameState.subscribeToGameRound(this);
   }
 
   isAverted() {
@@ -38,5 +40,11 @@ export default class Disaster {
       assertType(solution, Solution);
       solution.removeMarbles();
     });
+  }
+
+  nextRound() {
+    if (this.isAverted()) {
+      this.end();
+    }
   }
 }

@@ -4,7 +4,10 @@ import {
 import {
   assertType
 } from '../asserts.js';
-import GameState from '../GameState.js';
+import * as GameState from '../GameState.js';
+import {
+  Task
+} from '../Task.js';
 
 export default class Marble {
   constructor(id, name, icon) {
@@ -15,6 +18,7 @@ export default class Marble {
     this.id = id;
     this.name = name;
     this.icon = icon;
+    this.usedIn = null;
     this.isSelected = false;
 
     this.event = () => {
@@ -33,18 +37,23 @@ export default class Marble {
     this.isSelected = false;
   }
 
-  use() {
-    const res = GameState.getRessources();
-    res.moveFromReadyToInUse(this.id);
+  useIn(task) {
+    assertType(task, Task);
+    const state = this.getState();
+    if (state === 'ready') {
+      GameState.resources.moveFromReadyToInUse(this.id);
+    } else if (state === 'inUse') {
+      this.usedIn.removeMarble(this);
+    }
+    this.usedIn = task;
   }
 
   remove() {
-    const res = GameState.getRessources();
-    res.moveFromInUseToUsed(this.id);
+    this.usedIn = null;
+    GameState.resources.moveFromInUseToUsed(this.id);
   }
 
   getState() {
-    const res = GameState.getRessources();
-    return res.getState(this.id);
+    return GameState.resources.getState(this.id);
   }
 }

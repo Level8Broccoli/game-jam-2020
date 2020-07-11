@@ -1,4 +1,4 @@
-import GameState from './GameState.js';
+import * as GameState  from './GameState.js';
 import {
   assertType
 } from './asserts.js';
@@ -20,9 +20,7 @@ export default class Solution {
   }
 
   addSelectedMarble() {
-    const selectedMarble = GameState.getSelectedMarble();
-    this.task.addSelectedMarble(selectedMarble);
-    GameState.removeSelectedMarble();
+    this.task.addSelectedMarble(GameState.selectedMarble);
   }
 
   isFinished() {
@@ -30,13 +28,11 @@ export default class Solution {
   }
 
   removeMarbles() {
-    console.log(this);
     this.task.list.forEach(task => {
-      console.log(task.marble);
       if (task.marble) {
         task.marble.remove();
       }
-      // task.empty = true;
+      task.empty = true;
     });
   }
 

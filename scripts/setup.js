@@ -29,12 +29,14 @@ export const initResources = (res, marbleCount, readyCount) => {
 };
 
 export const initDisasters = () => {
-  const solutions = [];
+  const disasters = [];
+
+  const solutions1 = [];
   const solution1 = new Solution('Douse the fire', new TaskList([{
     count: 2,
     type: MarbleA
   }]), new GameChanger());
-  solutions.push(solution1);
+  solutions1.push(solution1);
   const solution2 = new Solution('Remove Air', new TaskList([{
     count: 1,
     type: MarbleB
@@ -42,20 +44,35 @@ export const initDisasters = () => {
     count: 2,
     type: MarbleC
   }]), new GameChanger());
-  solutions.push(solution2);
-  const solution3 = new Solution('new', new TaskList([{
+  solutions1.push(solution2);
+  const solution3 = new Solution('Find a cure', new TaskList([{
     count: 7,
     type: MarbleB
   }, {
     count: 5,
     type: MarbleC
   }]), new GameChanger());
-  solutions.push(solution3);
+  solutions1.push(solution3);
 
-  const disasters = [];
-  const disaster = new Disaster('Paris is buring', solutions, 3, new GameChanger());
-  const disaster2 = new Disaster('Paris is buring', solutions, 3, new GameChanger());
-  disasters.push(disaster, disaster2);
+  const disaster1 = new Disaster('Paris is buring', solutions1, 3, new GameChanger());
+
+  const solutions2 = [];
+  const solution4 = new Solution('Unicorns', new TaskList([{
+    count: 1,
+    type: MarbleA
+  }]), new GameChanger());
+  solutions2.push(solution4);
+  const solution5 = new Solution('Lifeboats', new TaskList([{
+    count: 1,
+    type: MarbleC
+  }, {
+    count: 1,
+    type: MarbleA
+  }]), new GameChanger());
+  solutions2.push(solution5);
+
+  const disaster2 = new Disaster('London underwater', solutions2, 2, new GameChanger());
+  disasters.push(disaster1, disaster2);
 
   return disasters;
 };
