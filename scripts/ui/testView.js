@@ -12,6 +12,9 @@ import Timer from '../Timer.js';
 const iconFolder = '/assets/icons/';
 
 const renderDisaster = (node, disaster) => {
+  if (!disaster.isVisible) {
+    return;
+  }
   const heading = document.createElement('h4');
   const text = document.createTextNode(disaster.description);
   heading.append(text);
@@ -133,12 +136,13 @@ const updateTimer = (node, timer) => {
   }
 
   const paragraph = document.createElement('p');
-  const roundString = timer.roundsLeft > 1 ? 'Rounds' : 'Round';
+  const lastRound = timer.roundsLeft === 0;
+  const roundString = timer.roundsLeft === 1 ? 'Round' : 'Rounds';
   const text = document.createTextNode(`${timer.roundsLeft} ${roundString} left`);
   paragraph.append(text);
   node.append(paragraph);
   const button = document.createElement('button');
-  const label = document.createTextNode('Next Round');
+  const label = document.createTextNode(lastRound ? 'End Game' : 'Next Round');
   button.append(label);
   button.addEventListener('click', () => {
     GameState.nextRound();

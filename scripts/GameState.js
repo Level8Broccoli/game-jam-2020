@@ -4,7 +4,8 @@ import {
   initDisasters
 } from './helpers/setup.js';
 import {
-  assertInheritance, assertMethod
+  assertInheritance,
+  assertMethod
 } from './helpers/asserts.js';
 import Marble from './marbles/Marble.js';
 import Timer from './Timer.js';
@@ -45,19 +46,17 @@ export function selectMarble(marble) {
 }
 
 export const hasGameEnded = () => {
-  if(timer.roundsLeft <= 0) {
-    Logger.log('Game End, Mama is back!');
-    return true;
-  }
-  return false;
+  return timer.roundsLeft < 0;
 };
 
 export function nextRound() {
-  observerList.forEach(obj =>{
-    obj.nextRound();
+  observerList.forEach(obj => {
+    obj.nextRound(timer.getRoundNumber());
   });
 
   removeSelectedMarble();
   resources.readyRandomMarbles(3);
-  hasGameEnded();
+  if (hasGameEnded()) {
+    Logger.log('Game End, Mama is back!');
+  }
 }

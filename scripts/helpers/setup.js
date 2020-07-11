@@ -54,7 +54,7 @@ export const initDisasters = () => {
   }]), new GameChanger());
   solutions1.push(solution3);
 
-  const disaster1 = new Disaster('Paris is buring', solutions1, 3, new GameChanger());
+  const disaster1 = new Disaster('Paris is burnig', solutions1, 0, 4, new GameChanger());
 
   const solutions2 = [];
   const solution4 = new Solution('Unicorns', new TaskList([{
@@ -71,7 +71,7 @@ export const initDisasters = () => {
   }]), new GameChanger());
   solutions2.push(solution5);
 
-  const disaster2 = new Disaster('London underwater', solutions2, 2, new GameChanger());
+  const disaster2 = new Disaster('London underwater', solutions2, 2, 3, new GameChanger());
   disasters.push(disaster1, disaster2);
 
   return disasters;
