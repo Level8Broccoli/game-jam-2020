@@ -15,7 +15,9 @@ main>div {
 .marble>img,
 .tasks>img {
   margin-right: 5px;
+  padding: 5px;
   width: 50px;
+  border-radius: 50%;
 }
 
 .empty {

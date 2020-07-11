@@ -8,12 +8,6 @@ import Marble from './marbles/Marble.js';
 import Disaster from './Disaster.js';
 import Solution from './Solution.js';
 
-const upcomingNode = document.querySelector('.upcoming');
-const readyNode = document.querySelector('.ready');
-const usedNode = document.querySelector('.used');
-const disastersNode = document.querySelector('.disasters');
-
-
 const updateMarbles = (node, marbles) => {
   assertType(node, HTMLDivElement);
   assertType(marbles, Array);
@@ -94,12 +88,40 @@ const updateDisasters = (node, disasters) => {
   });
 };
 
+const updateTimer = (node, timer) => {
+  node.textContent = '';
+
+  const paragraph = document.createElement('p');
+  const roundString = timer.roundsLeft > 1 ? 'Rounds' : 'Round';
+  const text = document.createTextNode(`${timer.roundsLeft} ${roundString} left`);
+  paragraph.append(text);
+  node.append(paragraph);
+
+  const button = document.createElement('button');
+  const label = document.createTextNode('Next Round');
+  button.append(label);
+  button.addEventListener('click', () => {
+    GameState.nextRound();
+    updateUi();
+  });
+  node.append(button);
+};
+
+
+const upcomingNode = document.querySelector('.upcoming');
+const readyNode = document.querySelector('.ready');
+const usedNode = document.querySelector('.used');
+const disastersNode = document.querySelector('.disasters');
+const timerNode = document.querySelector('.timer');
+
 
 export const updateUi = () => {
   const res = GameState.getRessources();
-  const disasters = GameState.getDisasters();
   updateMarbles(upcomingNode, res.upcoming);
   updateMarbles(readyNode, res.ready);
   updateMarbles(usedNode, res.used);
+  const disasters = GameState.getDisasters();
   updateDisasters(disastersNode, disasters);
+  const timer = GameState.getTimer();
+  updateTimer(timerNode, timer);
 };

@@ -1,15 +1,18 @@
 import Resources from './Resources.js';
 import {
-  initResources, initDisasters
+  initResources,
+  initDisasters
 } from './setup.js';
 import {
   assertInheritance
 } from './asserts.js';
 import Marble from './marbles/Marble.js';
+import Timer from './Timer.js';
 
 let resources = null;
 let disasters = null;
 let selectedMarble = null;
+let timer = new Timer(10);
 
 export default class GameState {
   static getState() {
@@ -23,7 +26,8 @@ export default class GameState {
     return {
       resources,
       disasters,
-      selectedMarble
+      selectedMarble,
+      timer
     };
   }
 
@@ -43,9 +47,15 @@ export default class GameState {
     return selectedMarble;
   }
 
+  static getTimer() {
+    return timer;
+  }
+
   static removeSelectedMarble() {
-    selectedMarble.deselect();
-    selectedMarble = null;
+    if (selectedMarble !== null) {
+      selectedMarble.deselect();
+      selectedMarble = null;
+    }
   }
 
   static selectMarble(marble) {
@@ -66,5 +76,10 @@ export default class GameState {
   static addDisasters(...disasters) {
     const state = this.getState();
     state.disasters.push(...disasters);
+  }
+
+  static nextRound() {
+    timer.nextRound();
+    this.removeSelectedMarble();
   }
 }
