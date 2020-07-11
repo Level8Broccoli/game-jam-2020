@@ -1,7 +1,14 @@
 import { updateUi } from './ui.js';
+import { assertType } from './asserts.js';
+import Resources from './Resources.js';
 
 export default class Marble {
   constructor(id, name, icon, res) {
+    assertType(id, Number);
+    assertType(name, String);
+    assertType(icon, String);
+    assertType(res, Resources);
+
     this.id = id;
     this.name = name;
     this.icon = icon;

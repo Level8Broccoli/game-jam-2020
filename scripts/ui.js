@@ -1,4 +1,5 @@
 import GameState from './GameState.js';
+import { assertType } from './asserts.js';
 
 const upcoming = document.querySelector('.upcoming');
 const ready = document.querySelector('.ready');
@@ -6,6 +7,9 @@ const used = document.querySelector('.used');
 
 
 const updateSection = (sec, marbles) => {
+  assertType(sec, HTMLDivElement);
+  assertType(marbles, Array);
+
   sec.textContent = '';
   marbles.forEach(marble => {
     const img = document.createElement('img');

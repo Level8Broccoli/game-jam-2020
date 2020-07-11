@@ -1,3 +1,7 @@
+import {
+  assertType
+} from './asserts.js';
+
 export default class Resources {
   constructor() {
     this.upcoming = [];
@@ -8,6 +12,10 @@ export default class Resources {
   }
 
   move(id, from, to) {
+    assertType(id, Number);
+    assertType(from, Array);
+    assertType(to, Array);
+
     const index = from.map(e => e.id).indexOf(id);
     const marble = from.splice(index, 1)[0];
     to.push(marble);
@@ -19,22 +27,27 @@ export default class Resources {
     if (!id) {
       id = this.getRandomId(this.upcoming);
     }
+    assertType(id, Number);
     this.moveFromUpcomingToReady(id);
   }
 
   getRandomId(from) {
+    assertType(from, Array);
     return from[Math.floor(Math.random() * from.length)].id;
   }
 
   moveFromUpcomingToReady(id) {
+    assertType(id, Number);
     this.move(id, this.upcoming, this.ready);
   }
 
   useMarble(id) {
+    assertType(id, Number);
     this.move(id, this.ready, this.used);
   }
 
   getState(id) {
+    assertType(id, Number);
     if (this.upcoming.find(e => e.id === id)) {
       return 'upcoming';
     }
@@ -52,6 +65,8 @@ export default class Resources {
     }
   }
   moveAll(from, to) {
+    assertType(from, Array);
+    assertType(to, Array);
     to.push(...from.splice(0));
   }
 

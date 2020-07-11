@@ -13,7 +13,7 @@ const solutions = [];
 const solution = new Solution('Douse the fire', new Task(), new GameChanger());
 solutions.push(solution);
 const disasters = [];
-const disaster = new Disaster('location', 'desc', solutions, 3, new GameChanger());
+const disaster = new Disaster('desc', solutions, 3, new GameChanger());
 disasters.push(disaster);
 
 updateUi();
