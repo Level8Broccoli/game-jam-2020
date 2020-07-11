@@ -25,9 +25,9 @@ export default class Resources {
 
   readyRandomMarbles(n) {
     assertType(n, Number);
-    n = this.upcoming.length >= n ? n : this.upcoming.length;
     for (let i = 0; i < n; i++) {
       const randomId = this.getRandomId(this.upcoming);
+      if (isNaN(randomId)) break;
       this.readyMarble(randomId);
     }
   }
@@ -39,6 +39,7 @@ export default class Resources {
 
   getRandomId(from) {
     assertType(from, Array);
+    this.checkForReshuffling();
     if (from.length === 0) return;
     return from[Math.floor(Math.random() * from.length)].id;
   }
