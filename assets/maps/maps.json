@@ -1,0 +1,43 @@
+[
+
+{ "name": "Lucerne", "image": "lucerne.png", "hotspots": [
+    { "name": "Train Station", "position": [1300, 600] },
+    { "name": "Hospital", "position": [880, 200] } ] },
+
+{ "name": "London", "image": "london.png", "hotspots": [
+    { "name": "Westminster Abbey", "position": [1050, 600] },
+    { "name": "Millenium Bridge", "position": [1500, 340] },
+    { "name": "Kia Oval", "position": [1250, 980] } ] },
+
+{ "name": "Oslo", "image": "oslo.png", "hotspots": [
+    { "name": "Nansen Park", "position": [780, 630] },
+    { "name": "???", "position": [0, 0] },
+    { "name": "???", "position": [0, 0] } ] },
+
+{ "name": "Amsterdam", "image": "empty.png", "hotspots": [
+    { "name": "???", "position": [0, 0] },
+    { "name": "???", "position": [0, 0] },
+    { "name": "???", "position": [0, 0] } ] },
+
+{ "name": "Barcelona", "image": "empty.png", "hotspots": [
+    { "name": "Sagrada", "position": [0, 0] },
+    { "name": "Ocean", "position": [0, 0] },
+    { "name": "La Rambla", "position": [0, 0] } ] },
+
+{ "name": "Cape Town", "image": "empty.png", "hotspots": [
+    { "name": "???", "position": [0, 0] },
+    { "name": "???", "position": [0, 0] },
+    { "name": "???", "position": [0, 0] } ] },
+
+{ "name": "Paris", "image": "empty.png", "hotspots": [
+    { "name": "???", "position": [0, 0] },
+    { "name": "???", "position": [0, 0] },
+    { "name": "???", "position": [0, 0] } ] },
+
+{ "name": "World", "image": "empty.png", "hotspots": [
+    { "name": "???", "position": [0, 0] },
+    { "name": "???", "position": [0, 0] },
+    { "name": "???", "position": [0, 0] },
+    { "name": "???", "position": [0, 0] } ] }
+
+]
