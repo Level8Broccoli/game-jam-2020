@@ -2,7 +2,7 @@ import {
   assertType
 } from './asserts.js';
 import GameState from './GameState.js';
-import Marble from './Marble.js';
+import Marble from './marbles/Marble.js';
 import Disaster from './Disaster.js';
 import Solution from './Solution.js';
 
@@ -12,7 +12,7 @@ const usedNode = document.querySelector('.used');
 const disastersNode = document.querySelector('.disasters');
 
 
-const updateMarbleSection = (node, marbles) => {
+const updateMarbles = (node, marbles) => {
   assertType(node, HTMLDivElement);
   assertType(marbles, Array);
 
@@ -65,8 +65,8 @@ const updateDisasters = (node, disasters) => {
 export const updateUi = () => {
   const state = GameState.getState();
   const res = state.resources;
-  updateMarbleSection(upcomingNode, res.upcoming);
-  updateMarbleSection(readyNode, res.ready);
-  updateMarbleSection(usedNode, res.used);
+  updateMarbles(upcomingNode, res.upcoming);
+  updateMarbles(readyNode, res.ready);
+  updateMarbles(usedNode, res.used);
   updateDisasters(disastersNode, state.disasters);
 };

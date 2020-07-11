@@ -1,6 +1,6 @@
-import { updateUi } from './ui.js';
-import { assertType } from './asserts.js';
-import Resources from './Resources.js';
+import { updateUi } from '../ui.js';
+import { assertType } from '../asserts.js';
+import Resources from '../Resources.js';
 
 export default class Marble {
   constructor(id, name, icon, res) {

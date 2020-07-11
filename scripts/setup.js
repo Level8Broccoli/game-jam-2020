@@ -1,4 +1,4 @@
-import Marble from './Marble.js';
+import Marble from './marbles/Marble.js';
 import Logger from './Logger.js';
 
 export const initResources = (res, marbleCount, readyCount) => {
