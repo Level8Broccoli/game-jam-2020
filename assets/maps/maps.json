@@ -1,8 +1,10 @@
 [
 
 { "name": "Lucerne", "image": "lucerne.jpg", "hotspots": [
-    { "name": "Train Station", "position": [1300, 600] },
-    { "name": "Hospital", "position": [880, 200] } ] },
+    { "name": "City Wall", "position": [1020, 420] },
+    { "name": "Lion Monument", "position": [1310, 210] },
+    { "name": "Culture and Congress Centre", "position": [1350, 560] },
+    { "name": "Chapel Bridge", "position": [1210, 510] } ] },
 
 { "name": "London", "image": "london.jpg", "hotspots": [
     { "name": "Westminster Abbey", "position": [1050, 600] },
@@ -11,33 +13,14 @@
 
 { "name": "Oslo", "image": "oslo.jpg", "hotspots": [
     { "name": "Nansen Park", "position": [780, 630] },
-    { "name": "???", "position": [0, 0] },
-    { "name": "???", "position": [0, 0] } ] },
+    { "name": "The Royal Palace", "position": [1660, 320] },
+    { "name": "Bygdøy Peninsula", "position": [1320, 480] } ] },
 
-{ "name": "Amsterdam", "image": "empty.jpg", "hotspots": [
-    { "name": "???", "position": [0, 0] },
-    { "name": "???", "position": [0, 0] },
-    { "name": "???", "position": [0, 0] } ] },
-
-{ "name": "Barcelona", "image": "empty.jpg", "hotspots": [
-    { "name": "Sagrada", "position": [0, 0] },
-    { "name": "Ocean", "position": [0, 0] },
-    { "name": "La Rambla", "position": [0, 0] } ] },
-
-{ "name": "Cape Town", "image": "empty.jpg", "hotspots": [
-    { "name": "???", "position": [0, 0] },
-    { "name": "???", "position": [0, 0] },
-    { "name": "???", "position": [0, 0] } ] },
-
-{ "name": "Paris", "image": "empty.jpg", "hotspots": [
-    { "name": "???", "position": [0, 0] },
-    { "name": "???", "position": [0, 0] },
-    { "name": "???", "position": [0, 0] } ] },
-
-{ "name": "World", "image": "empty.jpg", "hotspots": [
-    { "name": "???", "position": [0, 0] },
-    { "name": "???", "position": [0, 0] },
-    { "name": "???", "position": [0, 0] },
-    { "name": "???", "position": [0, 0] } ] }
+{ "name": "World", "image": "world.jpg", "hotspots": [
+    { "name": "Tashkent", "position": [1340, 390] },
+    { "name": "Mandalay", "position": [1530, 560] },
+    { "name": "Taipei", "position": [1720, 530] },
+    { "name": "Libreville", "position": [890, 720] },
+    { "name": "Monvtevideo", "position": [410, 1000] } ] }
 
 ]
