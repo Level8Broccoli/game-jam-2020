@@ -13,7 +13,9 @@ const solutions = [];
 const solution = new Solution('Douse the fire', new Task(), new GameChanger());
 solutions.push(solution);
 const disasters = [];
-const disaster = new Disaster('desc', solutions, 3, new GameChanger());
+const disaster = new Disaster('Paris is buring', solutions, 3, new GameChanger());
 disasters.push(disaster);
+
+GameState.addDisasters(...disasters);
 
 updateUi();

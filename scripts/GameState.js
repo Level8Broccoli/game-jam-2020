@@ -15,11 +15,19 @@ export default class GameState {
       disasters = [];
     }
 
-    return {resources, disasters};
+    return {
+      resources,
+      disasters
+    };
   }
 
   static initState() {
     const state = this.getState();
     initResources(state.resources, 10, 3);
+  }
+
+  static addDisasters(...disasters) {
+    const state = this.getState();
+    state.disasters.push(...disasters);
   }
 }

@@ -1,17 +1,25 @@
+import {
+  assertType
+} from './asserts.js';
 import GameState from './GameState.js';
-import { assertType } from './asserts.js';
+import Marble from './Marble.js';
+import Disaster from './Disaster.js';
+import Solution from './Solution.js';
 
-const upcoming = document.querySelector('.upcoming');
-const ready = document.querySelector('.ready');
-const used = document.querySelector('.used');
+const upcomingNode = document.querySelector('.upcoming');
+const readyNode = document.querySelector('.ready');
+const usedNode = document.querySelector('.used');
+const disastersNode = document.querySelector('.disasters');
 
 
-const updateSection = (sec, marbles) => {
-  assertType(sec, HTMLDivElement);
+const updateMarbleSection = (node, marbles) => {
+  assertType(node, HTMLDivElement);
   assertType(marbles, Array);
 
-  sec.textContent = '';
+  node.textContent = '';
   marbles.forEach(marble => {
+    assertType(marble, Marble);
+
     const img = document.createElement('img');
     img.src = `/assets/icons/${marble.icon}.svg`;
     img.alt = marble.name;
@@ -23,14 +31,42 @@ const updateSection = (sec, marbles) => {
     picture.append(img);
     picture.append(paragraph);
     picture.addEventListener('click', marble.event);
-    sec.append(picture);
+    node.append(picture);
   });
 };
+
+const updateDisasters = (node, disasters) => {
+  assertType(node, HTMLDivElement);
+  assertType(disasters, Array);
+
+  node.textContent = '';
+  disasters.forEach(disaster => {
+    assertType(disaster, Disaster);
+
+    const heading = document.createElement('h4');
+    const text = document.createTextNode(disaster.description);
+    heading.append(text);
+
+    node.append(heading);
+
+    disaster.solutions.forEach(solution => {
+      assertType(solution, Solution);
+
+      const paragraph = document.createElement('p');
+      const text = document.createTextNode(solution.description);
+      paragraph.append(text);
+
+      node.append(paragraph);
+    });
+  });
+};
+
 
 export const updateUi = () => {
   const state = GameState.getState();
   const res = state.resources;
-  updateSection(upcoming, res.upcoming);
-  updateSection(ready, res.ready);
-  updateSection(used, res.used);
+  updateMarbleSection(upcomingNode, res.upcoming);
+  updateMarbleSection(readyNode, res.ready);
+  updateMarbleSection(usedNode, res.used);
+  updateDisasters(disastersNode, state.disasters);
 };
