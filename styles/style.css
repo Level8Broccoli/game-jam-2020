@@ -62,7 +62,7 @@ main>div {
 }
 
 .ready .selected img,
-.tasks .selected img {
+.tasks .selected {
   border-color: lightcoral;
 }
 

@@ -16,7 +16,7 @@ const renderDisaster = (node, disaster) => {
     return;
   }
   const heading = document.createElement('h4');
-  const text = document.createTextNode(disaster.description);
+  const text = document.createTextNode(`${disaster.description} (Rounds left: ${disaster.countdown})`);
   heading.append(text);
   node.append(heading);
   disaster.solutions.forEach(solution => {
@@ -136,9 +136,8 @@ const updateTimer = (node, timer) => {
   }
 
   const paragraph = document.createElement('p');
-  const lastRound = timer.roundsLeft === 0;
-  const roundString = timer.roundsLeft === 1 ? 'Round' : 'Rounds';
-  const text = document.createTextNode(`${timer.roundsLeft} ${roundString} left`);
+  const lastRound = timer.roundsLeft === 1;
+  const text = document.createTextNode(lastRound ? 'Last Round' : `${timer.roundsLeft} Rounds left`);
   paragraph.append(text);
   node.append(paragraph);
   const button = document.createElement('button');

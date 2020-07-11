@@ -46,7 +46,7 @@ export function selectMarble(marble) {
 }
 
 export const hasGameEnded = () => {
-  return timer.roundsLeft < 0;
+  return timer.roundsLeft <= 0;
 };
 
 export function nextRound() {
