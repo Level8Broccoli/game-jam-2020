@@ -2,10 +2,10 @@ import Resources from './Resources.js';
 import {
   initResources,
   initDisasters
-} from './setup.js';
+} from './helpers/setup.js';
 import {
   assertInheritance, assertMethod
-} from './asserts.js';
+} from './helpers/asserts.js';
 import Marble from './marbles/Marble.js';
 import Timer from './Timer.js';
 

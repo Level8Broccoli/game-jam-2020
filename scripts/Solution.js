@@ -1,12 +1,12 @@
 import * as GameState  from './GameState.js';
 import {
   assertType
-} from './asserts.js';
+} from './helpers/asserts.js';
 import {
   TaskList
 } from './Task.js';
 import GameChanger from './GameChanger.js';
-import Logger from './Logger.js';
+import Logger from './helpers/Logger.js';
 
 export default class Solution {
   constructor(description, task, reward) {

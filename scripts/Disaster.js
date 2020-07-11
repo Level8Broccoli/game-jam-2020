@@ -1,6 +1,6 @@
 import {
   assertType
-} from './asserts.js';
+} from './helpers/asserts.js';
 import GameChanger from './GameChanger.js';
 import Solution from './Solution.js';
 import * as GameState from './GameState.js';

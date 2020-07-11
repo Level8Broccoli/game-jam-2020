@@ -1,7 +1,7 @@
 import * as GameState  from './GameState.js';
-import { updateUi } from './ui.js';
+import * as TestView from './ui/testView.js';
 
 GameState.initState();
-updateUi();
+TestView.updateUi();
 
 window.GameState = GameState;

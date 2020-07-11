@@ -3,13 +3,13 @@ import {
   MarbleA,
   MarbleB,
   MarbleC
-} from './marbles/MarbleImplementations.js';
-import Solution from './Solution.js';
+} from '../marbles/MarbleImplementations.js';
+import Solution from '../Solution.js';
 import {
   TaskList
-} from './Task.js';
-import GameChanger from './GameChanger.js';
-import Disaster from './Disaster.js';
+} from '../Task.js';
+import GameChanger from '../GameChanger.js';
+import Disaster from '../Disaster.js';
 
 export const initResources = (res, marbleCount, readyCount) => {
   Logger.log('filled bag randomly', marbleCount, 'starting with', readyCount);

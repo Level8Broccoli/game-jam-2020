@@ -2,12 +2,12 @@ import {
   assertType,
   assertSubclass,
   assertInheritance
-} from './asserts.js';
-import * as GameState from './GameState.js';
-import Marble from './marbles/Marble.js';
-import Disaster from './Disaster.js';
-import Solution from './Solution.js';
-import Timer from './Timer.js';
+} from '../helpers/asserts.js';
+import * as GameState from '../GameState.js';
+import Marble from '../marbles/Marble.js';
+import Disaster from '../Disaster.js';
+import Solution from '../Solution.js';
+import Timer from '../Timer.js';
 
 const iconFolder = '/assets/icons/';
 

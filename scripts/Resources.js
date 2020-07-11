@@ -1,6 +1,6 @@
 import {
   assertType
-} from './asserts.js';
+} from './helpers/asserts.js';
 
 export default class Resources {
   constructor() {

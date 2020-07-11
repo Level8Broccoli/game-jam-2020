@@ -2,7 +2,7 @@ import {
   assertType,
   assertSubclass,
   assertInheritance
-} from './asserts.js';
+} from './helpers/asserts.js';
 import Marble from './marbles/Marble.js';
 
 export class Task {
