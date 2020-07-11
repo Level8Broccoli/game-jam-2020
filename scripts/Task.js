@@ -11,7 +11,6 @@ export default class Task {
       count,
       type
     }) => {
-      console.log(type);
       assertType(count, Number);
       assertSubclass(type, Marble);
     });

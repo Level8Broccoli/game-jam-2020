@@ -1,5 +1,7 @@
 import {
-  assertType
+  assertType,
+  assertSubclass,
+  assertInheritance
 } from './asserts.js';
 import GameState from './GameState.js';
 import Marble from './marbles/Marble.js';
@@ -18,7 +20,7 @@ const updateMarbles = (node, marbles) => {
 
   node.textContent = '';
   marbles.forEach(marble => {
-    assertType(marble, Marble);
+    assertInheritance(marble, Marble);
 
     const img = document.createElement('img');
     img.src = `/assets/icons/${marble.icon}.svg`;
@@ -28,6 +30,9 @@ const updateMarbles = (node, marbles) => {
     paragraph.append(label);
     const picture = document.createElement('picture');
     picture.classList.add('marble');
+    if (marble.isSelected) {
+      picture.classList.add('selected');
+    }
     picture.append(img);
     picture.append(paragraph);
     picture.addEventListener('click', marble.event);
@@ -56,6 +61,11 @@ const updateDisasters = (node, disasters) => {
       const text = document.createTextNode(solution.description);
       paragraph.append(text);
 
+      solution.task.taskList.forEach(task => {
+        assertType(task.count, Number);
+        assertSubclass(task.type, Marble);
+      });
+
       node.append(paragraph);
     });
   });
@@ -63,10 +73,11 @@ const updateDisasters = (node, disasters) => {
 
 
 export const updateUi = () => {
-  const state = GameState.getState();
-  const res = state.resources;
+  const res = GameState.getRessources();
+  const disasters = GameState.getDisasters();
   updateMarbles(upcomingNode, res.upcoming);
   updateMarbles(readyNode, res.ready);
   updateMarbles(usedNode, res.used);
-  updateDisasters(disastersNode, state.disasters);
+  updateDisasters(disastersNode, disasters);
+  console.log(GameState.getState());
 };

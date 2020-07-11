@@ -2,7 +2,7 @@ main {
   display: flex;
 }
 
-main > div {
+main>div {
   width: 30%;
 }
 
@@ -27,4 +27,12 @@ main > div {
 
 .used img {
   filter: invert(1) opacity(.2);
+}
+
+.ready img {
+  border: 1px solid white;
+}
+
+.ready .selected img {
+  border: 1px solid red;
 }

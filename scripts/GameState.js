@@ -26,6 +26,15 @@ export default class GameState {
     initResources(state.resources, 10, 3);
   }
 
+  static getDisasters() {
+    const state = this.getState();
+    return state.disasters;
+  }
+
+  static getRessources() {
+    const state = this.getState();
+    return state.resources;
+  }
   static addDisasters(...disasters) {
     const state = this.getState();
     state.disasters.push(...disasters);
