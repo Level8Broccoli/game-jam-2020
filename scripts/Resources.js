@@ -19,27 +19,26 @@ export default class Resources {
     const index = from.map(e => e.id).indexOf(id);
     const marble = from.splice(index, 1)[0];
     to.push(marble);
-
-    this.checkForReshuffling();
   }
 
   readyRandomMarbles(n) {
     assertType(n, Number);
     for (let i = 0; i < n; i++) {
+      this.checkForReshuffling();
+      if (this.upcoming.length === 0) break;
       const randomId = this.getRandomId(this.upcoming);
-      if (isNaN(randomId)) break;
       this.readyMarble(randomId);
     }
   }
 
   readyMarble(id) {
     assertType(id, Number);
+    this.checkForReshuffling();
     this.moveFromUpcomingToReady(id);
   }
 
   getRandomId(from) {
     assertType(from, Array);
-    this.checkForReshuffling();
     if (from.length === 0) return;
     return from[Math.floor(Math.random() * from.length)].id;
   }

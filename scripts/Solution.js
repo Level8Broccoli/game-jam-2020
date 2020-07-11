@@ -31,6 +31,7 @@ export default class Solution {
     this.task.list.forEach(task => {
       if (task.marble) {
         task.marble.remove();
+        task.marble = null;
       }
       task.empty = true;
     });
