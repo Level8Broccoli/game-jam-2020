@@ -28,13 +28,11 @@ export default class Solution {
   }
 
   removeMarbles() {
-    console.log(this);
     this.task.list.forEach(task => {
-      console.log(task.marble);
       if (task.marble) {
         task.marble.remove();
       }
-      // task.empty = true;
+      task.empty = true;
     });
   }
 
