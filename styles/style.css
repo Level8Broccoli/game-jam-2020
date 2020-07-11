@@ -6,14 +6,18 @@ main>div {
   width: 30%;
 }
 
-.marbles {
+.marbles, .tasks {
   display: flex;
   flex-wrap: wrap;
 }
 
-.marble {
+.marble, .tasks > img {
   margin-right: 5px;
   width: 50px;
+}
+
+.empty {
+  filter: opacity(0.2);
 }
 
 .ready picture:hover {

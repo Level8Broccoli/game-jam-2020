@@ -61,12 +61,24 @@ const updateDisasters = (node, disasters) => {
       const text = document.createTextNode(solution.description);
       paragraph.append(text);
 
-      solution.task.taskList.forEach(task => {
-        assertType(task.count, Number);
-        assertSubclass(task.type, Marble);
-      });
+      const div = document.createElement('div');
+      div.classList.add('tasks');
 
+      solution.task.taskList.forEach(task => {
+        assertSubclass(task.type, Marble);
+
+        const img = document.createElement('img');
+        const marble = new task.type();
+        img.src = `/assets/icons/${marble.icon}.svg`;
+        if (task.state === null) {
+          img.classList.add('empty');
+        }
+
+        div.append(img);
+
+      });
       node.append(paragraph);
+      node.append(div);
     });
   });
 };
