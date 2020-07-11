@@ -7,6 +7,7 @@ import * as GameState from './GameState.js';
 import Marble from './marbles/Marble.js';
 import Disaster from './Disaster.js';
 import Solution from './Solution.js';
+
 const updateMarbles = (node, marbles) => {
   assertType(node, HTMLDivElement);
   assertType(marbles, Array);
@@ -30,6 +31,7 @@ const updateMarbles = (node, marbles) => {
     node.append(picture);
   });
 };
+
 const updateDisasters = (node, disasters) => {
   assertType(node, HTMLDivElement);
   assertType(disasters, Array);
@@ -54,11 +56,12 @@ const updateDisasters = (node, disasters) => {
         img.src = `/assets/icons/${marble.icon}.svg`;
         if (task.empty === true) {
           img.classList.add('empty');
-          if (GameState.selectMarble !== null && GameState.selectMarble instanceof task.type) {
+          if (GameState.selectedMarble !== null && GameState.selectedMarble instanceof task.type) {
             img.classList.add('possibleDrop');
             img.addEventListener('click', () => {
               solution.addSelectedMarble();
-              GameState.selectMarble.use();
+              GameState.selectedMarble.use();
+              GameState.removeSelectedMarble();
               updateUi();
             });
           }
@@ -70,6 +73,7 @@ const updateDisasters = (node, disasters) => {
     });
   });
 };
+
 const updateTimer = (node, timer) => {
   node.textContent = '';
   const paragraph = document.createElement('p');
@@ -86,11 +90,13 @@ const updateTimer = (node, timer) => {
   });
   node.append(button);
 };
+
 const upcomingNode = document.querySelector('.upcoming');
 const readyNode = document.querySelector('.ready');
 const usedNode = document.querySelector('.used');
 const disastersNode = document.querySelector('.disasters');
 const timerNode = document.querySelector('.timer');
+
 export const updateUi = () => {
   updateMarbles(upcomingNode, GameState.resources.upcoming);
   updateMarbles(readyNode, GameState.resources.ready);

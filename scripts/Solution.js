@@ -20,8 +20,7 @@ export default class Solution {
   }
 
   addSelectedMarble() {
-    this.task.addSelectedMarble(GameState.selectMarble);
-    GameState.removeSelectedMarble();
+    this.task.addSelectedMarble(GameState.selectedMarble);
   }
 
   isFinished() {
