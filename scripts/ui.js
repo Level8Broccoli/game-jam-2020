@@ -1,27 +1,31 @@
+import GameState from './GameState.js';
+
 const upcoming = document.querySelector('.upcoming');
 const ready = document.querySelector('.ready');
 const used = document.querySelector('.used');
 
 
-const updateSection = (sec, actions) => {
+const updateSection = (sec, marbles) => {
   sec.textContent = '';
-  actions.forEach(action => {
+  marbles.forEach(marble => {
     const img = document.createElement('img');
-    img.src = `/assets/icons/${action.icon}.svg`;
-    img.alt = action.name;
+    img.src = `/assets/icons/${marble.icon}.svg`;
+    img.alt = marble.name;
     const paragraph = document.createElement('p');
-    const label = document.createTextNode(action.name);
+    const label = document.createTextNode(marble.name);
     paragraph.append(label);
     const picture = document.createElement('picture');
-    picture.classList.add('action');
+    picture.classList.add('marble');
     picture.append(img);
     picture.append(paragraph);
-    picture.addEventListener('click', action.event);
+    picture.addEventListener('click', marble.event);
     sec.append(picture);
   });
 };
 
-export const updateUi = (res) => {
+export const updateUi = () => {
+  const state = GameState.getState();
+  const res = state.resources;
   updateSection(upcoming, res.upcoming);
   updateSection(ready, res.ready);
   updateSection(used, res.used);

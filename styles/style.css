@@ -6,12 +6,12 @@ main > div {
   width: 30%;
 }
 
-.actions {
+.marbles {
   display: flex;
   flex-wrap: wrap;
 }
 
-.action {
+.marble {
   margin-right: 5px;
   width: 50px;
 }

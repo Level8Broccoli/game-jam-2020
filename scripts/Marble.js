@@ -1,6 +1,6 @@
 import { updateUi } from './ui.js';
 
-export default class Action {
+export default class Marble {
   constructor(id, name, icon, res) {
     this.id = id;
     this.name = name;
@@ -8,9 +8,9 @@ export default class Action {
     this.res = res;
     this.event = () => {
       if (this.getState() === 'ready') {
-        this.res.useAction(this.id);
-        this.res.readyAction();
-        updateUi(this.res);
+        this.res.useMarble(this.id);
+        this.res.readyMarble();
+        updateUi();
       }
     };
   }

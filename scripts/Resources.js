@@ -9,13 +9,13 @@ export default class Resources {
 
   move(id, from, to) {
     const index = from.map(e => e.id).indexOf(id);
-    const action = from.splice(index, 1)[0];
-    to.push(action);
+    const marble = from.splice(index, 1)[0];
+    to.push(marble);
 
     this.checkForReshuffling();
   }
 
-  readyAction(id) {
+  readyMarble(id) {
     if (!id) {
       id = this.getRandomId(this.upcoming);
     }
@@ -30,7 +30,7 @@ export default class Resources {
     this.move(id, this.upcoming, this.ready);
   }
 
-  useAction(id) {
+  useMarble(id) {
     this.move(id, this.ready, this.used);
   }
 

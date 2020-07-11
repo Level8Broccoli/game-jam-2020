@@ -1,8 +1,8 @@
-import Action from './Action.js';
+import Marble from './Marble.js';
 import Logger from './Logger.js';
 
-export const initResources = (res, n) => {
-  Logger.log('filled bag randomly', n);
+export const initResources = (res, marbleCount, readyCount) => {
+  Logger.log('filled bag randomly', marbleCount, 'starting with', readyCount);
   let random = [{
     name: 'Push',
     file: 'forward-sun'
@@ -22,10 +22,14 @@ export const initResources = (res, n) => {
     name: 'Dragon',
     file: 'dragon-head'
   }];
-  while (n > 0) {
+  while (marbleCount > 0) {
     const randomIndex = Math.floor(Math.random() * random.length);
     const randomObj = random[randomIndex];
-    const action = new Action(n--, randomObj.name, randomObj.file, res);
-    res.upcoming.push(action);
+    const marble = new Marble(marbleCount--, randomObj.name, randomObj.file, res);
+    res.upcoming.push(marble);
+  }
+  while (readyCount > 0) {
+    res.readyMarble();
+    readyCount--;
   }
 };
