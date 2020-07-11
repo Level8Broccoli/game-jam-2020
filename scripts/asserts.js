@@ -15,3 +15,9 @@ export function assertSubclass(subclass, clazz) {
     throw new TypeError('Invalid Type "' + subclass + '" is not a subclass of ' + clazz);
   }
 }
+
+export function assertMethod(obj, methodName) {
+  if ((obj === undefined) || (obj === null) || !(typeof obj[methodName] === 'function')) {
+    throw new TypeError('Missing method "' + methodName + '" for ' + obj);
+  }
+}

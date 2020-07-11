@@ -4,7 +4,7 @@ import {
   initDisasters
 } from './setup.js';
 import {
-  assertInheritance
+  assertInheritance, assertMethod
 } from './asserts.js';
 import Marble from './marbles/Marble.js';
 import Timer from './Timer.js';
@@ -12,11 +12,18 @@ import Timer from './Timer.js';
 export const resources = new Resources();
 export const disasters = [];
 export let selectedMarble = null;
-export let timer = new Timer(10);
+export const timer = new Timer(10);
+const observerList = [];
+
+export function subscribeToGameRound(obj) {
+  assertMethod(obj, 'nextRound');
+  observerList.push(obj);
+}
 
 export function initState() {
   initResources(resources, 10, 3);
   disasters.push(...initDisasters());
+  subscribeToGameRound(timer);
 }
 
 export function removeSelectedMarble() {
@@ -37,12 +44,10 @@ export function selectMarble(marble) {
 }
 
 export function nextRound() {
-  timer.nextRound();
-  this.removeSelectedMarble();
-  disasters.forEach(disaster => {
-    if (disaster.isAverted()) {
-      disaster.end();
-    }
+  observerList.forEach(obj =>{
+    obj.nextRound();
   });
+
+  removeSelectedMarble();
   resources.readyRandomMarbles(3);
 }

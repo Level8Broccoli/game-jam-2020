@@ -82,6 +82,7 @@ export default class Resources {
       return 'deleted';
     }
   }
+
   moveAll(from, to) {
     assertType(from, Array);
     assertType(to, Array);
