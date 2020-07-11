@@ -1,4 +1,4 @@
-.bagContents, .pulledContents {
+.actions {
   display: flex;
   flex-wrap: wrap;
 }
@@ -8,10 +8,15 @@
   width: 50px;
 }
 
-.inside {
+.ready picture:hover {
+  cursor: pointer;
+  filter: opacity(.8);
+}
+
+.upcoming img {
   filter: invert(1) opacity(.5);
 }
 
-.hidden {
-  display: none;
+.used img {
+  filter: invert(1) opacity(.2);
 }
