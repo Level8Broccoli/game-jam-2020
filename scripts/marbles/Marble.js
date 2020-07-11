@@ -1,5 +1,9 @@
-import { updateUi } from '../ui.js';
-import { assertType } from '../asserts.js';
+import {
+  updateUi
+} from '../ui.js';
+import {
+  assertType
+} from '../asserts.js';
 import GameState from '../GameState.js';
 
 export default class Marble {
@@ -15,10 +19,18 @@ export default class Marble {
 
     this.event = () => {
       if (this.getState() === 'ready') {
-        this.isSelected = !this.isSelected;
+        GameState.selectMarble(this);
         updateUi();
       }
     };
+  }
+
+  select() {
+    this.isSelected = true;
+  }
+
+  deselect() {
+    this.isSelected = false;
   }
 
   getState() {

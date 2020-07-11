@@ -1,6 +1,7 @@
 import {
   assertType,
-  assertSubclass
+  assertSubclass,
+  assertInheritance
 } from './asserts.js';
 import Marble from './marbles/Marble.js';
 
@@ -17,10 +18,18 @@ export default class Task {
       for (let i = 0; i < count; i++) {
         this.taskList.push({
           type,
-          state: null
+          empty: true
         });
       }
     });
+  }
 
+  addSelectedMarble(marble) {
+    assertInheritance(marble, Marble);
+
+    const task = this.taskList.find(task => {
+      return (marble instanceof task.type && task.empty === true);
+    });
+    task.empty = false;
   }
 }

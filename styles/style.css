@@ -6,12 +6,14 @@ main>div {
   width: 30%;
 }
 
-.marbles, .tasks {
+.marbles,
+.tasks {
   display: flex;
   flex-wrap: wrap;
 }
 
-.marble, .tasks > img {
+.marble,
+.tasks>img {
   margin-right: 5px;
   width: 50px;
 }
@@ -33,10 +35,16 @@ main>div {
   filter: invert(1) opacity(.2);
 }
 
-.ready img {
-  border: 1px solid white;
+.ready img,
+.tasks img {
+  border: 5px solid black;
 }
 
 .ready .selected img {
-  border: 1px solid red;
+  border-color: lightcoral;
+}
+
+.tasks .possibleDrop {
+  border-color: lightseagreen;
+  cursor: pointer;
 }

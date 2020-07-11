@@ -2,9 +2,14 @@ import Resources from './Resources.js';
 import {
   initResources
 } from './setup.js';
+import {
+  assertInheritance
+} from './asserts.js';
+import Marble from './marbles/Marble.js';
 
 let resources = null;
 let disasters = null;
+let selectedMarble = null;
 
 export default class GameState {
   static getState() {
@@ -17,7 +22,8 @@ export default class GameState {
 
     return {
       resources,
-      disasters
+      disasters,
+      selectedMarble
     };
   }
 
@@ -29,6 +35,25 @@ export default class GameState {
   static getDisasters() {
     const state = this.getState();
     return state.disasters;
+  }
+
+  static getSelectedMarble() {
+    return selectedMarble;
+  }
+
+  static removeSelectedMarble() {
+    selectedMarble.deselect();
+    selectedMarble = null;
+  }
+
+  static selectMarble(marble) {
+    assertInheritance(marble, Marble);
+
+    if (selectedMarble !== null) {
+      selectedMarble.deselect();
+    }
+    marble.select();
+    selectedMarble = marble;
   }
 
   static getRessources() {

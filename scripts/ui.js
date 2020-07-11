@@ -58,7 +58,7 @@ const updateDisasters = (node, disasters) => {
       assertType(solution, Solution);
 
       const paragraph = document.createElement('p');
-      const text = document.createTextNode(solution.description);
+      const text = document.createTextNode('Possible Solution: ' + solution.description);
       paragraph.append(text);
 
       const div = document.createElement('div');
@@ -70,8 +70,19 @@ const updateDisasters = (node, disasters) => {
         const img = document.createElement('img');
         const marble = new task.type();
         img.src = `/assets/icons/${marble.icon}.svg`;
-        if (task.state === null) {
+        if (task.empty === true) {
           img.classList.add('empty');
+
+          const selectedMarble = GameState.getSelectedMarble();
+          if (selectedMarble !== null && selectedMarble instanceof task.type) {
+            img.classList.add('possibleDrop');
+            img.addEventListener('click', () => {
+              solution.addSelectedMarble();
+              GameState.getRessources().useMarble(selectedMarble.id);
+              GameState.getRessources().readyMarble();
+              updateUi();
+            });
+          }
         }
 
         div.append(img);
@@ -91,5 +102,4 @@ export const updateUi = () => {
   updateMarbles(readyNode, res.ready);
   updateMarbles(usedNode, res.used);
   updateDisasters(disastersNode, disasters);
-  console.log(GameState.getState());
 };
