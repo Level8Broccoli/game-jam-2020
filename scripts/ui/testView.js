@@ -33,7 +33,7 @@ const renderSolution = (node, solution) => {
   div.classList.add('tasks');
   solution.task.list.forEach(task => {
     assertSubclass(task.type, Marble);
-    div.append(renderTask(task, solution));
+    div.append(renderTask(task));
   });
   node.append(paragraph);
   node.append(div);
@@ -50,9 +50,9 @@ const checkIfSlotIsValid = (task, img) => {
   }
 };
 
-const renderEmptyTaskSlot = (img, task, solution) => {
+const renderEmptyTaskSlot = (img, task) => {
   img.classList.add('empty');
-  checkIfSlotIsValid(task, img, solution);
+  checkIfSlotIsValid(task, img);
 };
 
 const renderFilledTaskSlot = (img, task) => {
@@ -70,13 +70,13 @@ const renderFilledTaskSlot = (img, task) => {
   }
 };
 
-const renderTask = (task, solution) => {
+const renderTask = (task) => {
   const marble = task.marble ? task.marble : new task.type();
   const img = document.createElement('img');
   img.src = `${iconFolder}${marble.icon}.svg`;
 
   if (task.empty === true) {
-    renderEmptyTaskSlot(img, task, solution);
+    renderEmptyTaskSlot(img, task);
   } else {
     renderFilledTaskSlot(img, task);
   }
