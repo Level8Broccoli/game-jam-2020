@@ -14,6 +14,7 @@ export class Task {
 
   addMarble(marble) {
     assertInheritance(marble, Marble);
+    console.log('add Marble', this);
     this.empty = false;
     this.marble = marble;
   }

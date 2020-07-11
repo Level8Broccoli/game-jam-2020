@@ -36,30 +36,42 @@ const renderSolution = (node, solution) => {
   node.append(div);
 };
 
-const renderTask = (task, solution) => {
-  const img = document.createElement('img');
-  const marble = new task.type();
-  img.src = `${iconFolder}${marble.icon}.svg`;
-  if (task.empty === true) {
-    img.classList.add('empty');
-    if (GameState.selectedMarble !== null && GameState.selectedMarble instanceof task.type) {
-      img.classList.add('possibleDrop');
-      img.addEventListener('click', () => {
-        solution.addSelectedMarble();
-        GameState.selectedMarble.useIn(task);
-        GameState.removeSelectedMarble();
-        updateUi();
-      });
-    }
-  } else {
-    img.setAttribute('data-id', task.marble.id);
+const checkIfSlotIsValid = (task, img) => {
+  if (GameState.selectedMarble !== null && GameState.selectedMarble instanceof task.type) {
+    img.classList.add('possibleDrop');
     img.addEventListener('click', () => {
-      GameState.selectMarble(task.marble);
+      GameState.selectedMarble.useIn(task);
+      GameState.removeSelectedMarble();
       updateUi();
     });
-    if (task.marble.isSelected) {
-      img.classList.add('selected');
-    }
+  }
+};
+
+const renderEmptyTaskSlot = (img, task, solution) => {
+  img.classList.add('empty');
+  checkIfSlotIsValid(task, img, solution);
+};
+
+const renderFilledTaskSlot = (img, task) => {
+  img.setAttribute('data-id', task.marble.id);
+  img.addEventListener('click', () => {
+    GameState.selectMarble(task.marble);
+    updateUi();
+  });
+  if (task.marble.isSelected) {
+    img.classList.add('selected');
+  }
+};
+
+const renderTask = (task, solution) => {
+  const marble = task.marble ? task.marble : new task.type();
+  const img = document.createElement('img');
+  img.src = `${iconFolder}${marble.icon}.svg`;
+
+  if (task.empty === true) {
+    renderEmptyTaskSlot(img, task, solution);
+  } else {
+    renderFilledTaskSlot(img, task);
   }
   return img;
 };

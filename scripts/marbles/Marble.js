@@ -15,7 +15,7 @@ export default class Marble {
     this.id = id;
     this.name = name;
     this.icon = icon;
-    this.usedIn = null;
+    this.placedInTask = null;
     this.isSelected = false;
 
     this.event = () => {
@@ -39,13 +39,14 @@ export default class Marble {
     if (state === 'ready') {
       GameState.resources.moveFromReadyToInUse(this.id);
     } else if (state === 'inUse') {
-      this.usedIn.removeMarble(this);
+      this.placedInTask.removeMarble(this);
     }
-    this.usedIn = task;
+    task.addMarble(this);
+    this.placedInTask = task;
   }
 
   remove() {
-    this.usedIn = null;
+    this.placedInTask = null;
     GameState.resources.moveFromInUseToUsed(this.id);
   }
 
