@@ -18,6 +18,15 @@ main>div {
   flex-wrap: wrap;
 }
 
+.tasks .frozen {
+  filter: invert(.2);
+  border-color: darkolivegreen;
+}
+
+.tasks .frozen {
+  cursor: default !important;
+}
+
 .marble>img,
 .tasks>img {
   margin-right: 5px;

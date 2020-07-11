@@ -8,6 +8,7 @@ import {
 } from './helpers/asserts.js';
 import Marble from './marbles/Marble.js';
 import Timer from './Timer.js';
+import Logger from './helpers/Logger.js';
 
 export const resources = new Resources();
 export const disasters = [];
@@ -43,6 +44,14 @@ export function selectMarble(marble) {
   selectedMarble = marble;
 }
 
+export const hasGameEnded = () => {
+  if(timer.roundsLeft <= 0) {
+    Logger.log('Game End, Mama is back!');
+    return true;
+  }
+  return false;
+};
+
 export function nextRound() {
   observerList.forEach(obj =>{
     obj.nextRound();
@@ -50,4 +59,5 @@ export function nextRound() {
 
   removeSelectedMarble();
   resources.readyRandomMarbles(3);
+  hasGameEnded();
 }

@@ -10,11 +10,11 @@ export class Task {
     assertSubclass(type, Marble);
     this.type = type;
     this.empty = true;
+    this.frozen = false;
   }
 
   addMarble(marble) {
     assertInheritance(marble, Marble);
-    console.log('add Marble', this);
     this.empty = false;
     this.marble = marble;
   }
@@ -23,6 +23,10 @@ export class Task {
     assertInheritance(marble, Marble);
     this.empty = true;
     this.marble = null;
+  }
+
+  freeze() {
+    this.frozen = true;
   }
 }
 

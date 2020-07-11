@@ -46,5 +46,8 @@ export default class Disaster {
     if (this.isAverted()) {
       this.end();
     }
+    this.solutions.forEach(solution => {
+      solution.freezeMarbles();
+    });
   }
 }

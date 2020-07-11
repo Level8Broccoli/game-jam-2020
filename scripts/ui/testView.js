@@ -54,6 +54,10 @@ const renderEmptyTaskSlot = (img, task, solution) => {
 
 const renderFilledTaskSlot = (img, task) => {
   img.setAttribute('data-id', task.marble.id);
+  if (task.frozen) {
+    img.classList.add('frozen');
+    return;
+  }
   img.addEventListener('click', () => {
     GameState.selectMarble(task.marble);
     updateUi();
@@ -124,6 +128,10 @@ const updateTimer = (node, timer) => {
   assertType(timer, Timer);
 
   node.textContent = '';
+  if (GameState.hasGameEnded()) {
+    return;
+  }
+
   const paragraph = document.createElement('p');
   const roundString = timer.roundsLeft > 1 ? 'Rounds' : 'Round';
   const text = document.createTextNode(`${timer.roundsLeft} ${roundString} left`);

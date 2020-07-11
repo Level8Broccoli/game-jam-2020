@@ -1,4 +1,4 @@
-import * as GameState  from './GameState.js';
+import * as GameState from './GameState.js';
 import {
   assertType
 } from './helpers/asserts.js';
@@ -38,5 +38,13 @@ export default class Solution {
 
   giveReward() {
     Logger.log('give reward', this.description);
+  }
+
+  freezeMarbles() {
+    this.task.list.forEach(task => {
+      if (task.marble) {
+        task.freeze();
+      }
+    });
   }
 }
