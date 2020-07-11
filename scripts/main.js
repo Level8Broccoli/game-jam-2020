@@ -9,4 +9,3 @@ res.readyAction();
 res.readyAction();
 res.readyAction();
 updateUi(res);
-console.log(res);

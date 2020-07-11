@@ -51,13 +51,13 @@ export default class Resources {
       return 'deleted';
     }
   }
-  moveAllFromUsedToUpcoming() {
-    this.upcoming = this.used.splice(0);
+  moveAll(from, to) {
+    to.push(...from.splice(0));
   }
 
   checkForReshuffling() {
     if (this.upcoming.length === 0) {
-      this.moveAllFromUsedToUpcoming();
+      this.moveAll(this.used, this.upcoming);
     }
   }
 }
