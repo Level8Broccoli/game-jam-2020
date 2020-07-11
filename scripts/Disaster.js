@@ -47,7 +47,7 @@ export default class Disaster {
 
   checkVisibility(roundNumber) {
     if (this.countdown === 0) {
-      this.hasEnded = true;
+      this.end();
     }
 
     if (this.hasEnded) {
