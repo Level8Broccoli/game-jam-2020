@@ -5,9 +5,23 @@ import {
 } from './asserts.js';
 import Marble from './marbles/Marble.js';
 
-export default class Task {
+class Task {
+  constructor(type) {
+    assertSubclass(type, Marble);
+    this.type = type;
+    this.empty = true;
+  }
+
+  addMarble(marble) {
+    assertInheritance(marble, Marble);
+    this.empty = false;
+    this.marble = marble;
+  }
+}
+
+export class TaskList {
   constructor(taskList) {
-    this.taskList = [];
+    this.list = [];
     assertType(taskList, Array);
     taskList.forEach(({
       count,
@@ -15,11 +29,9 @@ export default class Task {
     }) => {
       assertType(count, Number);
       assertSubclass(type, Marble);
+
       for (let i = 0; i < count; i++) {
-        this.taskList.push({
-          type,
-          empty: true
-        });
+        this.list.push(new Task(type));
       }
     });
   }
@@ -27,9 +39,9 @@ export default class Task {
   addSelectedMarble(marble) {
     assertInheritance(marble, Marble);
 
-    const task = this.taskList.find(task => {
+    const task = this.list.find(task => {
       return (marble instanceof task.type && task.empty === true);
     });
-    task.empty = false;
+    task.addMarble(marble);
   }
 }

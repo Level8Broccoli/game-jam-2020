@@ -64,7 +64,7 @@ const updateDisasters = (node, disasters) => {
       const div = document.createElement('div');
       div.classList.add('tasks');
 
-      solution.task.taskList.forEach(task => {
+      solution.task.list.forEach(task => {
         assertSubclass(task.type, Marble);
 
         const img = document.createElement('img');
