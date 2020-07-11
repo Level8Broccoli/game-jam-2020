@@ -1,6 +1,6 @@
 import Resources from './Resources.js';
 import {
-  initResources
+  initResources, initDisasters
 } from './setup.js';
 import {
   assertInheritance
@@ -30,6 +30,8 @@ export default class GameState {
   static initState() {
     const state = this.getState();
     initResources(state.resources, 10, 3);
+    const disasters = initDisasters();
+    this.addDisasters(...disasters);
   }
 
   static getDisasters() {
@@ -60,6 +62,7 @@ export default class GameState {
     const state = this.getState();
     return state.resources;
   }
+
   static addDisasters(...disasters) {
     const state = this.getState();
     state.disasters.push(...disasters);

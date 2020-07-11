@@ -12,7 +12,7 @@ main>div {
   flex-wrap: wrap;
 }
 
-.marble,
+.marble>img,
 .tasks>img {
   margin-right: 5px;
   width: 50px;
