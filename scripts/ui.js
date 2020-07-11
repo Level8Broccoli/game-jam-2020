@@ -7,6 +7,7 @@ import * as GameState from './GameState.js';
 import Marble from './marbles/Marble.js';
 import Disaster from './Disaster.js';
 import Solution from './Solution.js';
+import Timer from './Timer.js';
 
 const iconFolder = '/assets/icons/';
 
@@ -107,6 +108,9 @@ const updateDisasters = (node, disasters) => {
 };
 
 const updateTimer = (node, timer) => {
+  assertType(node, HTMLDivElement);
+  assertType(timer, Timer);
+
   node.textContent = '';
   const paragraph = document.createElement('p');
   const roundString = timer.roundsLeft > 1 ? 'Rounds' : 'Round';
