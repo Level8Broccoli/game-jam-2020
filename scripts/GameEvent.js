@@ -3,17 +3,22 @@ import {
 } from './helpers/asserts.js';
 import Hotspot from './Hotspot.js';
 import Disaster from './Disaster.js';
+import * as GameState from './GameState.js';
 
 export default class GameEvent {
-  constructor(hotspot, disaster) {
+  constructor(hotspot, disaster, countdown = 3) {
     assertType(hotspot, Hotspot);
     assertType(disaster, Disaster);
+    assertType(countdown, Number);
 
+    this.countdown = countdown;
     this.hotspot = hotspot;
     this.disaster = disaster;
+
+    GameState.subscribeToGameRound(this);
   }
 
-  static build(hotspot, disaster, solutionCount = 2) {
+  static build(hotspot, disaster, solutionCount = 2, countdown = 3) {
     assertType(hotspot, Hotspot);
     assertType(disaster, Disaster);
 
@@ -23,9 +28,25 @@ export default class GameEvent {
     assertType(disasterCopy, Disaster);
 
     // individualize
-    disasterCopy.reduceSolutionsTo(solutionCount);
+    disasterCopy.reduceSolutionsRandomlyTo(solutionCount);
     disasterCopy.title = disaster.title.replace(/@/, hotspot.name);
 
-    return new GameEvent(hotspotCopy, disasterCopy);
+    return new GameEvent(hotspotCopy, disasterCopy, countdown);
+  }
+
+  atLeastOneTaskIsCompleted() {
+    return this.disaster.atLeastOneTaskIsCompleted();
+  }
+
+  end() {
+    this.disaster.removeMarbles();
+  }
+
+  nextRound() {
+    this.countdown--;
+    if (this.countdown === 0 || this.atLeastOneTaskIsCompleted()) {
+      this.end();
+    }
+    this.disaster.freezeMarbles();
   }
 }

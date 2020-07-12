@@ -11,6 +11,7 @@ export default class Task {
     this.type = type;
     this.empty = true;
     this.frozen = false;
+    this.done = false;
   }
 
   static copy(t) {
@@ -22,12 +23,14 @@ export default class Task {
   addMarble(marble) {
     assertInheritance(marble, Marble);
     this.empty = false;
+    this.done = true;
     this.marble = marble;
   }
 
   removeMarble(marble) {
     assertInheritance(marble, Marble);
     this.empty = true;
+    this.done = false;
     this.marble = null;
   }
 

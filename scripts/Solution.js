@@ -21,6 +21,10 @@ export default class Solution {
     return new Solution(s.title, s.description, s.tasks.map(t => Task.copy(t)));
   }
 
+  areAllTasksCompleted() {
+    return this.tasks.reduce((bool, task) => task.done && bool, true);
+  }
+
   isFinished() {
     let flag = false;
     this.tasks.forEach(task => {
