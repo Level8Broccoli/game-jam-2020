@@ -12,8 +12,8 @@
                 "tasks": [1, 2, 3]
             },
             {
-                "title": "Call some helicopters and air planes to water it",
-                "description": "???",
+                "title": "Play with some helicopters and air planes and water it",
+                "description": "Love this toys they built all for me.",
                 "tasks": [1, 2, 3]
             },
             {
@@ -118,7 +118,7 @@
             },
             {
                 "title": "Convince them, humans are on the good side",
-                "description": "I've no idea how, need to raise my communication skill first",
+                "description": "I've no idea how. Need to raise my communication skill first",
                 "tasks": [1, 2, 3]
             }
         ]
@@ -138,12 +138,12 @@
             },
             {
                 "title": "Give them another strain of genetically modifiered rice",
-                "description": "This pesky humans still seem to prefer the long game and inbreed in ungodly ways, but you don't have time for that.",
+                "description": "This pesky humans still seem to prefer the long game and breed in ungodly ways, but you don't have time for that.",
                 "tasks": [1, 2, 3]
             },
             {
                 "title": "Free education for all parents",
-                "description": "???",
+                "description": "Hmm just realized it already exists on the internet, but they do not use it. What Khan I do about it?",
                 "tasks": [1, 2, 3]
             }
         ]
@@ -153,7 +153,7 @@
         "description": "???",
         "solutions": [{
                 "title": "Move around some earth",
-                "description": "???",
+                "description": "Through Earthquake? Divert magma streams? Let ants build some tunnels?",
                 "tasks": [1, 2, 3]
             },
             {
@@ -168,17 +168,17 @@
         "description": "???",
         "solutions": [{
                 "title": "Provide anti-radiation drugs",
-                "description": "???",
+                "description": "No don't mix it with something else. This is not a sociale experiment.",
                 "tasks": [1, 2, 3]
             },
             {
                 "title": "Provide lead armor for everyone",
-                "description": "And maybe strenghten all their bones a little bit",
+                "description": "And maybe strenghten all their bones a little bit. Need to prepare them for other planets anyway.",
                 "tasks": [1, 2, 3]
             },
             {
                 "title": "Ring the bunker bells",
-                "description": "Will the survive without the ability to use their smartphone down there?",
+                "description": "Will they survive without the ability to use their smartphone down there?",
                 "tasks": [1, 2, 3]
             }
         ]
@@ -198,7 +198,7 @@
             },
             {
                 "title": "Let it be",
-                "description": "A build some submarines so everyone can hide in the oceans.",
+                "description": "And build submarines so everyone can hide in the oceans.",
                 "tasks": [1, 2, 3]
             }
         ]
@@ -213,7 +213,7 @@
             },
             {
                 "title": "Put some big stones everywhere",
-                "description": "At least they do not run over each other",
+                "description": "At least they do not run over each other.",
                 "tasks": [1, 2, 3]
             },
             {
@@ -238,7 +238,7 @@
             },
             {
                 "title": "Plant some thing else which kills Ivy",
-                "description": "And hope this is this does not get out of control either.",
+                "description": "And hope this does not get out of control either.",
                 "tasks": [1, 2, 3]
             }
         ]
@@ -258,7 +258,7 @@
             },
             {
                 "title": "Suck the CO2 out of the atmosphere",
-                "description": "And make an infinite soda refill station out of it.",
+                "description": "Make an infinite soda refill station out of it. Open question: Do they fart out the CO2?",
                 "tasks": [1, 2, 3]
             }
         ]
@@ -338,7 +338,7 @@
             },
             {
                 "title": "Turn off the air conditioning",
-                "description": "They will complain, but they have no idea how hot it is to making a sun.",
+                "description": "They will complain, but they have no idea how hot it is to make a sun.",
                 "tasks": [1, 2, 3]
             },
             {
