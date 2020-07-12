@@ -4,22 +4,22 @@
         "solutions": [{
                 "title": "Open all fire hydrants",
                 "description": "Until the firefighters closed them, the fire should be gone.",
-                "tasks": [1, 2, 3]
+                "tasks": [1, 3]
             },
             {
                 "title": "Let it rain",
                 "description": "And make some sour apple belts out of the acid in there. I love them.",
-                "tasks": [1, 2, 3]
+                "tasks": [2, 2, 3]
             },
             {
                 "title": "Play with some helicopters and air planes and water it",
                 "description": "I love this toys, they built all for me.",
-                "tasks": [1, 2, 3]
+                "tasks": [1, 1]
             },
             {
                 "title": "Get rid of all oxygen in the air",
                 "description": "Only for a few seconds and hope the hummingbirds also survive it.",
-                "tasks": [1, 2, 3]
+                "tasks": [1, 1, 3]
             }
         ]
     },
@@ -29,12 +29,12 @@
         "solutions": [{
                 "title": "Silently vaccinate everyone",
                 "description": "Be careful, that not one single child gets autism during this time.",
-                "tasks": [1, 2, 3]
+                "tasks": [1, 2, 2]
             },
             {
                 "title": "Give free face masks for everyone",
                 "description": "I Hope they do not hoard them - because you never know when you may need them again.",
-                "tasks": [1, 2, 3]
+                "tasks": [3, 3]
             }
         ]
     },
@@ -44,17 +44,17 @@
         "solutions": [{
                 "title": "Strengthen local buildings",
                 "description": "With jet fuel safe steel.",
-                "tasks": [1, 2, 3]
+                "tasks": [3, 3]
             },
             {
                 "title": "Seal some plates",
                 "description": "What about this simulation models humans have about the future?",
-                "tasks": [1, 2, 3]
+                "tasks": [2, 2, 2]
             },
             {
                 "title": "Give everyone free holidays",
                 "description": "Hope all inhabitants take the airplane and fly immediately far, far away.",
-                "tasks": [1, 2, 3]
+                "tasks": [3]
             }
         ]
     },
@@ -64,17 +64,17 @@
         "solutions": [{
                 "title": "Build lightning rods",
                 "description": "I have a moral dilemma. Should I put them on churches or not?",
-                "tasks": [1, 2, 3]
+                "tasks": [2, 2]
             },
             {
                 "title": "Give umbrellas to everyone, with metal handles",
                 "description": "Cheaper version of lightning rods. Unfortunate collateral damage.",
-                "tasks": [1, 2, 3]
+                "tasks": [1]
             },
             {
                 "title": "Let the sun shine a few god rays through the clouds",
                 "description": "Which hopefully convince people to go into the church. And maybe pray for me -  a little bit.",
-                "tasks": [1, 2, 3]
+                "tasks": [1, 3, 3]
             }
         ]
     },
@@ -84,17 +84,17 @@
         "solutions": [{
                 "title": "Hack the friend/foe identification",
                 "description": "The military should care about it.",
-                "tasks": [1, 2, 3]
+                "tasks": [1]
             },
             {
                 "title": "Divert the flight path with strong head winds",
                 "description": "Just turn off the wind generators first. Or else they may go back to coal plants.",
-                "tasks": [1, 2, 3]
+                "tasks": [2, 2, 2]
             },
             {
                 "title": "Call the air force to escort it",
                 "description": "Take one of this red phones.",
-                "tasks": [1, 2, 3]
+                "tasks": [3, 1, 3]
             }
         ]
     },
@@ -104,22 +104,22 @@
         "solutions": [{
                 "title": "Build self-targeting laser arrays",
                 "description": "Put some reasonable rules inside the AI. I should not repeat this Terminator mistake again.",
-                "tasks": [1, 2, 3]
+                "tasks": [1, 3]
             },
             {
                 "title": "Give them human like appearance",
                 "description": "Nobody will notice. And if sombody notices, nobody will listen to them anyway.",
-                "tasks": [1, 2, 3]
+                "tasks": [2]
             },
             {
                 "title": "Call this man in black",
                 "description": "Wonder if he also can do his job in red.",
-                "tasks": [1, 2, 3]
+                "tasks": [1, 1, 1]
             },
             {
                 "title": "Convince them, humans are on the good side",
                 "description": "I've no idea how. Need to raise my communication skill first",
-                "tasks": [1, 2, 3]
+                "tasks": [3, 3]
             }
         ]
     },
@@ -129,22 +129,22 @@
         "solutions": [{
                 "title": "Bushes and trees immediately grow some fruits",
                 "description": "I gave them farkleberries and have no idea why they don't love me.",
-                "tasks": [1, 2, 3]
+                "tasks": [2, 2]
             },
             {
                 "title": "Send around e-mails, how to get some money for free",
                 "description": "I should think about something different then the Nigerian Prince this time.",
-                "tasks": [1, 2, 3]
+                "tasks": [1, 3]
             },
             {
                 "title": "Give them another strain of genetically modifiered rice",
                 "description": "This pesky humans still seem to prefer the long game and breed in ungodly ways, but I don't have time for that.",
-                "tasks": [1, 2, 3]
+                "tasks": [2]
             },
             {
                 "title": "Free education for all parents",
                 "description": "Hmm just realized it already exists on the internet, but they don't use it. What Khan I do about it?",
-                "tasks": [1, 2, 3]
+                "tasks": [3, 3, 3]
             }
         ]
     },
@@ -154,12 +154,12 @@
         "solutions": [{
                 "title": "Move around some earth",
                 "description": "Through an earthquake? Divert magma streams? Let ants build some tunnels?",
-                "tasks": [1, 2, 3]
+                "tasks": [2, 2, 2]
             },
             {
                 "title": "Provide millions of sandbags",
                 "description": "Be careful that nobody steals it and makes even more concrete out of it.",
-                "tasks": [1, 2, 3]
+                "tasks": [3]
             }
         ]
     },
@@ -169,7 +169,7 @@
         "solutions": [{
                 "title": "Provide anti-radiation drugs",
                 "description": "No I don't mix it with something else. This is not a social experiment.",
-                "tasks": [1, 2, 3]
+                "tasks": [2, 2, 2]
             },
             {
                 "title": "Provide lead armor for everyone",
@@ -179,7 +179,7 @@
             {
                 "title": "Ring the bunker bells",
                 "description": "Will they survive without the ability to use their smartphone down there?",
-                "tasks": [1, 2, 3]
+                "tasks": [1]
             }
         ]
     },
@@ -189,17 +189,17 @@
         "solutions": [{
                 "title": "Make flowers even stronger",
                 "description": "Last year I gave them ability to grow through streets. Seems this was not enough.",
-                "tasks": [1, 2, 3]
+                "tasks": [2]
             },
             {
-                "title": "Extinct varoa",
+                "title": "Extinct varroa mites",
                 "description": "At least the bee keepers will pray to me.",
                 "tasks": [1, 2, 3]
             },
             {
                 "title": "Let it bee",
                 "description": "And build submarines so everyone can hide in the oceans.",
-                "tasks": [1, 2, 3]
+                "tasks": [1, 1]
             }
         ]
     },
@@ -209,22 +209,22 @@
         "solutions": [{
                 "title": "Provide psychological first aid",
                 "description": "Maybe do it through a YouTube hit. But how to get the clicks? I don't have enough pocket money.",
-                "tasks": [1, 2, 3]
+                "tasks": [3, 3]
             },
             {
                 "title": "Put some big stones everywhere",
                 "description": "At least they do not run over each other.",
-                "tasks": [1, 2, 3]
+                "tasks": [2]
             },
             {
                 "title": "Try to convince them hey have free will",
                 "description": "I tell them even if it doesn't exist, they still should believe it. I should try to sound clever about this.",
-                "tasks": [1, 2, 3]
+                "tasks": [1, 3]
             },
             {
                 "title": "Let the police do their duty",
                 "description": "… although not sure if this is still a good idea this year",
-                "tasks": [1, 2, 3]
+                "tasks": [1, 1, 1]
             }
         ]
     },
@@ -234,12 +234,12 @@
         "solutions": [{
                 "title": "Get some herbicides",
                 "description": "The natural ones. Whatever the word natural means.",
-                "tasks": [1, 2, 3]
+                "tasks": [2, 2]
             },
             {
                 "title": "Plant some thing else which kills Ivy",
                 "description": "And hope this does not get out of control either.",
-                "tasks": [1, 2, 3]
+                "tasks": [1, 2]
             }
         ]
     },
@@ -249,12 +249,12 @@
         "solutions": [{
                 "title": "Ask children",
                 "description": "They seem to be more interested in this …",
-                "tasks": [1, 2, 3]
+                "tasks": [3, 3]
             },
             {
                 "title": "Evaporate all fossil fuel",
                 "description": "I tought it is just to give them an easier start.",
-                "tasks": [1, 2, 3]
+                "tasks": [1, 1, 1]
             },
             {
                 "title": "Suck the CO2 out of the atmosphere",
@@ -269,22 +269,22 @@
         "solutions": [{
                 "title": "Pay the education fee for everyone",
                 "description": "Didn't I do that already because of almost every other problem?",
-                "tasks": [1, 2, 3]
+                "tasks": [3, 3]
             },
             {
                 "title": "Make a James Bond movie about it",
                 "description": "And hope someone notices the reference",
-                "tasks": [1, 2, 3]
+                "tasks": [3]
             },
             {
                 "title": "Make another App-Store",
                 "description": "… with user centric guidelines. Any maybe do not change the TOS whenever I feel about it.",
-                "tasks": [1, 2, 3]
+                "tasks": [1, 3]
             },
             {
                 "title": "Extradite Snowden.",
                 "description": "But where to put him? Leaders of this marble are less and less trustworthy.",
-                "tasks": [1, 2, 3]
+                "tasks": [1, 1]
             }
         ]
     },
@@ -294,22 +294,22 @@
         "solutions": [{
                 "title": "Let the ones fight the war, who make the decisions",
                 "description": "Shortest war ever",
-                "tasks": [1, 2, 3]
+                "tasks": [3, 3, 3]
             },
             {
                 "title": "Send everyone an SMS",
                 "description": "With the question: Are you just going because someone told you?",
-                "tasks": [1, 2, 3]
+                "tasks": [3]
             },
             {
                 "title": "Draw new borders",
                 "description": "They seem to have a knack for very straight lines.",
-                "tasks": [1, 2, 3]
+                "tasks": [2, 2, 3]
             },
             {
                 "title": "Give the other side free candy",
                 "description": "Only blue M&Ms.",
-                "tasks": [1, 2, 3]
+                "tasks": [3]
             }
         ]
     },
@@ -319,17 +319,17 @@
         "solutions": [{
                 "title": "Make birth control available for everyone",
                 "description": "This time for men.",
-                "tasks": [1, 2, 3]
+                "tasks": [2, 3]
             },
             {
                 "title": "Invent retirement pension",
                 "description": "Will children still care about their parents or just let them rot?",
-                "tasks": [1, 2, 3]
+                "tasks": [3]
             },
             {
                 "title": "Make education better",
                 "description": "How amazing if they start to understand and stop to fear.",
-                "tasks": [1, 2, 3]
+                "tasks": [3, 3, 3]
             }
         ]
     },
@@ -339,12 +339,12 @@
         "solutions": [{
                 "title": "Build another power plant",
                 "description": "They're not ready for fusion. Lead them on the wrong path for another 30 years.",
-                "tasks": [1, 2, 3]
+                "tasks": [2, 2]
             },
             {
                 "title": "Turn off the air conditioning",
                 "description": "They will complain, but they have no idea how hot it is to make a sun.",
-                "tasks": [1, 2, 3]
+                "tasks": [1, 2]
             },
             {
                 "title": "Build a super capacitor",
@@ -359,7 +359,7 @@
         "solutions": [{
             "title": "Hope",
             "description": "…",
-            "tasks": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+            "tasks": [1, 1, 2, 2, 3, 3]
         }]
     }
 ]
