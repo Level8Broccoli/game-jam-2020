@@ -27,6 +27,7 @@ export const activeGameEvents = [];
 export let selectedMarble = null;
 export const timer = new Timer(10);
 
+export let currentLevel;
 const observerList = [];
 
 export function subscribeToGameRound(obj) {
@@ -35,6 +36,8 @@ export function subscribeToGameRound(obj) {
 }
 
 export async function initState(level = 'World') {
+  currentLevel = level;
+  Logger.log(`Current Map: ${level}`);
   initResources(resources, 10, 3);
   disasters.push(...(await loadDisasters()));
   hotspots.push(...(await loadHotspots(level)));
