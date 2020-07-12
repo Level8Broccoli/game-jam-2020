@@ -2,6 +2,7 @@ import {
   assertType
 } from './helpers/asserts.js';
 import Logger from './helpers/Logger.js';
+import Task from './Task.js';
 
 export default class Solution {
   constructor(title, description, tasks) {
@@ -9,8 +10,15 @@ export default class Solution {
     assertType(description, String);
     assertType(tasks, Array);
 
+    this.title = title;
     this.description = description;
     this.tasks = tasks;
+  }
+
+  static copy(s) {
+    assertType(s, Solution);
+
+    return new Solution(s.title, s.description, s.tasks.map(t => Task.copy(t)));
   }
 
   isFinished() {

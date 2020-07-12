@@ -81,9 +81,7 @@ function loadRandomEvents(n) {
   const events = [];
   for (let i = 0; i < n; i++) {
     events.push(
-      new GameEvent(
-        loadRandomHotspot(), loadRandomDisaster()
-      )
+      GameEvent.build(loadRandomHotspot(), loadRandomDisaster())
     );
   }
   activeGameEvents.push(...events);

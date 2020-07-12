@@ -1,4 +1,6 @@
-import { assertType } from './helpers/asserts.js';
+import {
+  assertType
+} from './helpers/asserts.js';
 
 export default class Hotspot {
   constructor(name, position) {
@@ -9,5 +11,11 @@ export default class Hotspot {
 
     this.name = name;
     this.position = position;
+  }
+
+  static copy(h) {
+    assertType(h, Hotspot);
+
+    return new Hotspot(h.name, [h.position[0], h.position[1]]);
   }
 }

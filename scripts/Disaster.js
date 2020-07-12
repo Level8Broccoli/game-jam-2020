@@ -17,6 +17,12 @@ export default class Disaster {
     GameState.subscribeToGameRound(this);
   }
 
+  static copy(d) {
+    assertType(d, Disaster);
+
+    return new Disaster(d.title, d.description, d.solutions.map(s => Solution.copy(s)));
+  }
+
   isAverted() {
     let flag = false;
     this.solutions.forEach(solution => {
@@ -63,4 +69,6 @@ export default class Disaster {
     });
     this.checkVisibility(roundNumber);
   }
+
+
 }
