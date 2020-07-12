@@ -22,6 +22,8 @@ const renderSolution = (node, solution) => {
 
   const paragraph = document.createElement('p');
   paragraph.classList.add('solution-subtitle');
+  paragraph.classList.add('is-family-secondary');
+  paragraph.classList.add('is-italic');
   const text = document.createTextNode(solution.description);
   paragraph.append(text);
   node.append(paragraph);
@@ -58,6 +60,8 @@ const renderGameEvent = (node, gameEvent) => {
 
   const subheading = document.createElement('h5');
   subheading.classList.add('disaster-subtitle');
+  subheading.classList.add('is-family-secondary');
+  subheading.classList.add('is-italic');
   const subheadingText = document.createTextNode(gameEvent.disaster.description);
   subheading.append(subheadingText);
   node.append(subheading);

@@ -60,6 +60,15 @@ main>div {
   margin-right: 25px;
 }
 
+.box {
+  height: max-content;
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+.box .box {
+  background-color: rgba(255, 255, 255, 1);
+}
+
 .marble-bar-left,
 .marble-bar-middle,
 .marble-bar-right {
@@ -137,7 +146,7 @@ main>div {
   border-radius: 50%;
 }
 
-.marble > p {
+.marble>p {
   text-justify: center;
   font-size: .85em;
 }
