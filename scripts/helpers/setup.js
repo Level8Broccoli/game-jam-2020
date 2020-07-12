@@ -26,12 +26,14 @@ export const initResources = (res, marbleCount, readyCount) => {
   res.readyRandomMarbles(readyCount);
 };
 
-export const loadHotspots = async (location) => {
+export const loadRegion = async (location) => {
   const response = await fetch('/assets/maps/maps.json');
   const region = (await response.json()).find(e => e.name === location);
-  return region.hotspots.map(h => {
+  const hotspots = region.hotspots.map(h => {
     return new Hotspot(h.name, h.position);
   });
+  const image = region.image;
+  return {image: image, hotspots: hotspots};
 };
 
 export const loadDisasters = async () => {
