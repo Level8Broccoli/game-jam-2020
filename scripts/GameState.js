@@ -6,7 +6,8 @@ import {
 } from './helpers/setup.js';
 import {
   assertInheritance,
-  assertMethod
+  assertMethod,
+  assertType
 } from './helpers/asserts.js';
 import Marble from './marbles/Marble.js';
 import Timer from './Timer.js';
@@ -92,4 +93,13 @@ function loadRandomEvents(n) {
 
 export function startGame() {
   loadRandomEvents(1);
+}
+
+export function removeGameEvent(gameEvent) {
+  assertType(gameEvent, GameEvent);
+
+  const index = this.activeGameEvents.map(e => e === gameEvent).indexOf(true);
+  if (index >= 0) {
+    this.activeGameEvents.splice(index, 1);
+  }
 }

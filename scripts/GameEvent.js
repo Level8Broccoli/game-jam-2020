@@ -40,6 +40,7 @@ export default class GameEvent {
 
   end() {
     this.disaster.removeMarbles();
+    GameState.removeGameEvent(this);
   }
 
   nextRound() {
