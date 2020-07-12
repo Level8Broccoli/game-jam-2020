@@ -42,7 +42,7 @@ function createNewRandomGameEvents(maxNewEvents, maxSolutions) {
   const possibleHotspotNames = getHotspotNamesNotInUse();
   if (possibleHotspotNames.length === 0) return;
   const numberOfSolutions = Math.max(Math.ceil(Math.random() * maxSolutions), 3);
-  const lengthOfCountdown = numberOfSolutions === 1 ? Math.ceil(Math.random() * 2) : Math.min(Math.ceil(Math.random() * 3), 2);
+  const lengthOfCountdown = numberOfSolutions === 1 ? Math.ceil(Math.random() * 2) : Math.min(Math.ceil(Math.random() * 4), 2);
 
   const newEvent = GameEvent.build(randomHotspot(possibleHotspotNames), randomDisaster(), numberOfSolutions, lengthOfCountdown);
   GameState.activeGameEvents.push(newEvent);
@@ -71,6 +71,7 @@ export default class GameEvent {
     this.countdown = countdown;
     this.hotspot = hotspot;
     this.disaster = disaster;
+    this.new = true;
 
     GameState.subscribeToGameRound(this);
   }
@@ -106,6 +107,7 @@ export default class GameEvent {
 
   nextRound() {
     this.countdown--;
+    this.new = false;
     if (this.countdown === 0 || this.atLeastOneTaskIsCompleted()) {
       this.end();
     }

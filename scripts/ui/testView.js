@@ -27,7 +27,13 @@ const renderSolution = (node, solution) => {
 
 const renderGameEvent = (node, gameEvent) => {
   const heading = document.createElement('h4');
-  const text = document.createTextNode(`${gameEvent.disaster.title}`);
+  const text = document.createTextNode(`${gameEvent.new ? 'NEW: ' : ''}${gameEvent.disaster.title} (Rounds left: ${gameEvent.countdown})`);
+  if (gameEvent.new) {
+    heading.classList.add('new');
+  }
+  if (gameEvent.countdown === 1) {
+    heading.classList.add('warning');
+  }
   heading.append(text);
   node.append(heading);
   gameEvent.disaster.solutions.forEach(solution => {

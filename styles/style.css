@@ -12,6 +12,14 @@ main>div {
   width: 30%;
 }
 
+.new {
+  color: lightseagreen;
+}
+
+.warning {
+  color: darkred;
+}
+
 .marbles,
 .tasks {
   display: flex;
