@@ -21,6 +21,10 @@ export default class Solution {
     return new Solution(s.title, s.description, s.tasks.map(t => Task.copy(t)));
   }
 
+  numberOfOpenTasks() {
+    return this.tasks.reduce((acc, task) => acc + (task.done ? 0 : 1), 0);
+  }
+
   areAllTasksCompleted() {
     return this.tasks.reduce((bool, task) => task.done && bool, true);
   }

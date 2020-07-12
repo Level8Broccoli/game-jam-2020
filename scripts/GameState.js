@@ -16,6 +16,9 @@ import GameEvent from './GameEvent.js';
 import {
   randomIndexOf
 } from './helpers/random.js';
+import {
+  createNewGameEvents
+} from './GameEvent.js';
 
 export const resources = new Resources();
 export const disasters = [];
@@ -66,6 +69,9 @@ export function nextRound() {
 
   removeSelectedMarble();
   resources.readyRandomMarbles(3);
+
+  createNewGameEvents();
+
   if (hasGameEnded()) {
     Logger.log('Game End, Mama is back!');
   }
@@ -81,18 +87,18 @@ function loadRandomDisaster() {
   return disasters[randomIndex];
 }
 
-function loadRandomEvents(n) {
+function loadRandomEvents(eventCount, solutionCount) {
   const events = [];
-  for (let i = 0; i < n; i++) {
+  for (let i = 0; i < eventCount; i++) {
     events.push(
-      GameEvent.build(loadRandomHotspot(), loadRandomDisaster())
+      GameEvent.build(loadRandomHotspot(), loadRandomDisaster(), solutionCount)
     );
   }
   activeGameEvents.push(...events);
 }
 
 export function startGame() {
-  loadRandomEvents(1);
+  loadRandomEvents(1, 1);
 }
 
 export function removeGameEvent(gameEvent) {

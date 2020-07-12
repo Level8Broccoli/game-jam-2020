@@ -35,6 +35,10 @@ export default class Disaster {
     });
   }
 
+  numberOfOpenTasks() {
+    return this.solutions.reduce((acc, solution) => acc + solution.numberOfOpenTasks(), 0);
+  }
+
   reduceSolutionsRandomlyTo(n) {
     assertType(n, Number);
     if (this.solutions.length <= n) return;
