@@ -22,9 +22,10 @@ export function subscribeToGameRound(obj) {
   observerList.push(obj);
 }
 
-export function initState() {
+export async function initState() {
   initResources(resources, 10, 3);
-  disasters.push(...initDisasters());
+  const response = await initDisasters();
+  disasters.push(...response);
   subscribeToGameRound(timer);
 }
 

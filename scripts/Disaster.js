@@ -13,7 +13,6 @@ export default class Disaster {
     assertType(countdown, Number);
     assertType(consequence, GameChanger);
 
-    this.location = location;
     this.description = description;
     this.solutions = solutions;
     this.delay = delay;

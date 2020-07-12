@@ -28,7 +28,11 @@ export const initResources = (res, marbleCount, readyCount) => {
   res.readyRandomMarbles(readyCount);
 };
 
-export const initDisasters = () => {
+export const initDisasters = async () => {
+  const response = await fetch('/assets/disasters.json');
+  const disastersTemplate = await response.json();
+  console.log(disastersTemplate);
+
   const disasters = [];
 
   const solutions1 = [];

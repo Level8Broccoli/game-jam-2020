@@ -1,4 +1,3 @@
-import * as GameState from './GameState.js';
 import {
   assertType
 } from './helpers/asserts.js';
