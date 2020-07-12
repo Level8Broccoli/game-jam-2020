@@ -40,6 +40,24 @@ const renderSolution = (node, solution) => {
     div.append(renderTask(task));
   });
   node.append(div);
+
+  const numTasks = solution.tasks.length;
+  const reward = document.createElement('small');
+  reward.classList.add('reward-hint');
+  if (numTasks > 4) {
+    const textReward = document.createTextNode('Reward: Win the game!');
+    reward.append(textReward);
+  } else if (numTasks === 1) {
+    const textReward = document.createTextNode('Reward: Small population boost.');
+    reward.append(textReward);
+  } else if (numTasks === 2) {
+    const textReward = document.createTextNode('Reward: Medium population boost.');
+    reward.append(textReward);
+  } else {
+    const textReward = document.createTextNode('Reward: Big population boost.');
+    reward.append(textReward);
+  }
+  node.append(reward);
 };
 
 const renderGameEvent = (node, gameEvent) => {
