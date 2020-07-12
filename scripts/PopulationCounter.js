@@ -1,3 +1,4 @@
+import { assertType } from './helpers/asserts.js';
 
 export default class PopulationCounter {
   constructor(startPopulation = 7.594) {
@@ -8,10 +9,12 @@ export default class PopulationCounter {
   }
 
   reduceBy(n) {
+    assertType(n, Number);
     this.population -= n;
   }
 
   addToBy(n) {
+    assertType(n, Number);
     this.population += n;
   }
 

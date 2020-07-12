@@ -268,4 +268,9 @@ export function initUi() {
     GameState.nextRound();
     updateUi();
   });
+
+  setInterval(() => {
+    GameState.population.addToBy(GameState.population.startPopulation / 2500);
+    updateUi();
+  }, 2000);
 }
