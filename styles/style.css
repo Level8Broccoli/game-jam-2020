@@ -4,10 +4,6 @@ body {
   font-family: Roboto;
 }
 
-main {
-  display: flex;
-}
-
 .navbar strong,
 .navbar .title {
   color: white;
@@ -36,10 +32,10 @@ main>div {
   width: 30%;
 }
 
-.disaster-title {
-  border-top: 1px solid lightgrey;
-  padding-top: 10px;
-  margin-bottom: 2px;
+.disasters {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 }
 
 .disaster-subtitle {
@@ -50,13 +46,22 @@ main>div {
   color: lightseagreen;
 }
 
+.solutions-header {
+  margin-top: 15px;
+}
+
 .countdown.warning,
 .warning {
   color: darkred;
 }
 
+.disasters .subtitle {
+  margin-bottom: 0;
+}
+
 .countdown {
   margin-top: 0;
+  margin-bottom: 15px;
   color: lightslategray;
 }
 

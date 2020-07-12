@@ -38,7 +38,7 @@ const renderSolution = (node, solution) => {
 
 const renderGameEvent = (node, gameEvent) => {
   const heading = document.createElement('h4');
-  heading.classList.add('disaster-title');
+  heading.classList.add('subtitle');
   const text = document.createTextNode(`${gameEvent.new ? 'NEW: ' : ''}${gameEvent.disaster.title}`);
   if (gameEvent.new) {
     heading.classList.add('new');
@@ -62,9 +62,19 @@ const renderGameEvent = (node, gameEvent) => {
   subheading.append(subheadingText);
   node.append(subheading);
 
+  const solutionHeader = document.createElement('h5');
+  solutionHeader.classList.add('has-text-weight-bold');
+  solutionHeader.classList.add('solutions-header');
+  const solutionHeaderText = document.createTextNode('Possible Solutions');
+  solutionHeader.append(solutionHeaderText);
+  node.append(solutionHeader);
+
   gameEvent.disaster.solutions.forEach(solution => {
     assertType(solution, Solution);
-    renderSolution(node, solution);
+    const solutionDiv = document.createElement('div');
+    solutionDiv.classList.add('box');
+    renderSolution(solutionDiv, solution);
+    node.append(solutionDiv);
   });
 };
 
@@ -148,10 +158,15 @@ const updateGameEvents = (node, gameEvents) => {
   assertType(gameEvents, Array);
   node.textContent = '';
 
+
   gameEvents.forEach(gameEvent => {
     assertType(gameEvent, GameEvent);
-    renderGameEvent(node, gameEvent);
+    const box = document.createElement('div');
+    renderGameEvent(box, gameEvent);
+    box.classList.add('box');
+    node.append(box);
   });
+
 };
 
 const updateBackground = () => {
