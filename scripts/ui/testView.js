@@ -177,7 +177,7 @@ function renderMarbleGroup(node, type, num) {
   node.append(picture);
 }
 
-function updateMarblesMinimized(node, marbles) {
+function updateMarblesGrouped(node, marbles) {
   assertType(node, HTMLDivElement);
   assertType(marbles, Array);
   node.textContent = '';
@@ -289,9 +289,9 @@ const populationNode = document.querySelector('.population');
 const locationNode = document.querySelector('.location');
 
 export const updateUi = () => {
-  updateMarblesMinimized(upcomingNode, GameState.resources.upcoming);
+  updateMarblesGrouped(upcomingNode, GameState.resources.upcoming);
   updateMarbles(readyNode, GameState.resources.ready);
-  updateMarblesMinimized(usedNode, GameState.resources.used);
+  updateMarblesGrouped(usedNode, GameState.resources.used);
   updateGameEvents(disastersNode, GameState.activeGameEvents);
   updateTimer(timerNode, GameState.timer);
   updatePopulation(populationNode, GameState.population);
