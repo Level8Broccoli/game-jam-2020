@@ -8,7 +8,15 @@ main {
   display: flex;
 }
 
-body {
+html {
+  height: 100%;
+}
+
+.timer {
+  margin-right: 20px;
+}
+
+body.body {
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-position: center center;
@@ -16,6 +24,7 @@ body {
   background-size: cover;
   background-color: #999;
   background-blend-mode: screen;
+  height: 100%;
 }
 
 main>div {

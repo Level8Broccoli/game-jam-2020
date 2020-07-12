@@ -198,20 +198,20 @@ const updateTimer = (node, timer) => {
   paragraph.append(text);
   node.append(paragraph);
 
+  const button = document.querySelector('.nextRound');
+
   if (GameState.end) {
+    button.classList.add('is-static');
     Logger.log(GameState.reasonForEnding);
     return;
   }
 
-  const button = document.createElement('button');
-  const label = document.createTextNode(lastRound ? 'End Game' : 'Next Round');
-  button.append(label);
   button.addEventListener('click', () => {
     GameState.nextRound();
     updateUi();
   });
+
   updateBackground();
-  node.append(button);
 };
 
 function updatePopulation(node, counter) {
@@ -219,9 +219,16 @@ function updatePopulation(node, counter) {
 
   assertType(counter, PopulationCounter);
   const paragraph = document.createElement('p');
-  const text = document.createTextNode(`Population left: ${Math.max(Math.round(counter.population*10000)/10000, 0)} Billions`);
+  const text = document.createTextNode(`Population: ${Math.max(Math.round(counter.population*10000)/10000, 0)} Billions`);
   paragraph.append(text);
   node.append(paragraph);
+}
+
+function updateWorld(node, world) {
+  node.textContent = '';
+
+  const text = document.createTextNode(world);
+  node.append(text);
 }
 
 const upcomingNode = document.querySelector('.upcoming');
@@ -230,6 +237,7 @@ const usedNode = document.querySelector('.used');
 const disastersNode = document.querySelector('.disasters');
 const timerNode = document.querySelector('.timer');
 const populationNode = document.querySelector('.population');
+const locationNode = document.querySelector('.location');
 
 export const updateUi = () => {
   updateMarbles(upcomingNode, GameState.resources.upcoming);
@@ -238,4 +246,5 @@ export const updateUi = () => {
   updateGameEvents(disastersNode, GameState.activeGameEvents);
   updateTimer(timerNode, GameState.timer);
   updatePopulation(populationNode, GameState.population);
+  updateWorld(locationNode, GameState.currentLevel);
 };
