@@ -62,6 +62,7 @@ main>div {
 
 .navbar .title {
   font-size: 1em;
+  color: hsl(171, 100%, 41%);
 }
 
 .navbar .title small {
@@ -192,6 +193,7 @@ main>div {
 }
 
 .tasks .possibleDrop {
-  border-color: rgb(22, 26, 25);
+  border-color: hsl(141, 53%, 53%);
   cursor: pointer;
+  filter: opacity(0.6);
 }

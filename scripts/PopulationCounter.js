@@ -19,7 +19,7 @@ export default class PopulationCounter {
   }
 
   disasterStruck() {
-    this.reduceBy(this.startPopulation / 15);
+    this.reduceBy(this.startPopulation / 12);
   }
 
   disasterAvoided() {
