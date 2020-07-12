@@ -219,7 +219,11 @@ const updateTimer = (node, timer) => {
   if (GameState.end) {
     button.classList.add('is-static');
     button.innerText = 'Game ended';
-    Logger.log(GameState.reasonForEnding);
+    if (GameState.reasonForEnding === 'Mama is back') {
+      gameEndsGood();
+    } else {
+      gameEndsBad();
+    }
     return;
   }
 
@@ -261,6 +265,8 @@ export const updateUi = () => {
   updateWorld(locationNode, GameState.currentLevel);
 };
 
+const modal = document.querySelector('.modal');
+
 export function initUi() {
   const button = document.querySelector('.nextRound');
 
@@ -273,4 +279,72 @@ export function initUi() {
     GameState.population.addToBy(GameState.population.startPopulation / 2500);
     updateUi();
   }, 2000);
+
+  const exitButton = document.querySelector('.modal-close ');
+  exitButton.addEventListener('click', () => {
+    modal.classList.remove('is-active');
+  });
+}
+
+
+const startDialogs = [
+  'Your Mom, goddess Nicole, has a burnout.',
+  'Caring about this zillions of planets is sometimes just too much. If you show the inhabitants what you really can do, they try to reach the same level of competency, fail and get sad. If you just leave them alone and hope they figure it out eventually, they destroy it, or question your existence. If you help them just a little bit, they always want more. And the more they learn, the less they love you. Unthankful brats.',
+  'For your sixth birthday, she gave you this tiny blue marble to play with. “Try to be careful and don\'t let it out of control“, were her words.',
+];
+
+export function startStory() {
+  let dialogCounter = 0;
+
+  modal.classList.add('is-active');
+
+  const content = modal.querySelector('.modal-text');
+  content.innerText = startDialogs[dialogCounter];
+
+  const button = modal.querySelector('.button');
+  button.innerText = 'Next';
+  button.addEventListener('click', () => {
+    dialogCounter++;
+    if (dialogCounter < startDialogs.length) {
+      content.innerText = startDialogs[dialogCounter];
+    } else {
+      modal.classList.remove('is-active');
+    }
+  });
+}
+
+let alreadyRead = false;
+
+function gameEndsGood() {
+  if (alreadyRead) return;
+
+  const text = 'You did good. Your blue marble still seems alive. Blue oceans, lush green forrests. Only a few of this ape-like animals lost. Your mom will be proud of you. But let her finish watching season 4.';
+
+  modal.classList.add('is-active');
+  const content = modal.querySelector('.modal-text');
+  content.innerText = text;
+
+  const button = modal.querySelector('.button');
+  button.innerText = 'Nice';
+  button.addEventListener('click', () => {
+    modal.classList.remove('is-active');
+    alreadyRead = true;
+  });
+}
+
+function gameEndsBad() {
+  if (alreadyRead) return;
+
+  const text = 'Oh my god. You gave the apex-animal too much freedom. Dark clouds everywhere, burned down forrests, polar caps molten. May this turn into another Venus? But hope is still there. Just don\'t tell your mom for the next 10k years and very likely everything will be fine again. Maybe read “Godmode - 101“ or “How to Win Friends & Influence People for Dummies“.';
+
+  modal.classList.add('is-active');
+  const content = modal.querySelector('.modal-text');
+  content.innerText = text;
+
+  const button = modal.querySelector('.button');
+  button.innerText = 'Shit';
+  button.addEventListener('click', () => {
+    modal.classList.remove('is-active');
+    alreadyRead = true;
+  });
 }

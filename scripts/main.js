@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   GameState.startGame();
   TestView.initUi();
   TestView.updateUi();
+  TestView.startStory();
 });
 
 window.GameState = GameState;
