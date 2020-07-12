@@ -1,6 +1,9 @@
 import {
   assertType
 } from './helpers/asserts.js';
+import {
+  randomIndexOf
+} from './helpers/random.js';
 
 export default class Resources {
   constructor() {
@@ -40,7 +43,8 @@ export default class Resources {
   getRandomId(from) {
     assertType(from, Array);
     if (from.length === 0) return;
-    return from[Math.floor(Math.random() * from.length)].id;
+    const randomIndex = randomIndexOf(from);
+    return from[randomIndex].id;
   }
 
   moveFromUpcomingToReady(id) {

@@ -12,6 +12,9 @@ import Marble from './marbles/Marble.js';
 import Timer from './Timer.js';
 import Logger from './helpers/Logger.js';
 import GameEvent from './GameEvent.js';
+import {
+  randomIndexOf
+} from './helpers/random.js';
 
 export const resources = new Resources();
 export const disasters = [];
@@ -68,12 +71,12 @@ export function nextRound() {
 }
 
 function loadRandomHotspot() {
-  const randomIndex = Math.floor(Math.random() * hotspots.length);
+  const randomIndex = randomIndexOf(hotspots);
   return hotspots[randomIndex];
 }
 
 function loadRandomDisaster() {
-  const randomIndex = Math.floor(Math.random() * disasters.length);
+  const randomIndex = randomIndexOf(disasters);
   return disasters[randomIndex];
 }
 

@@ -3,6 +3,9 @@ import {
 } from './helpers/asserts.js';
 import Solution from './Solution.js';
 import * as GameState from './GameState.js';
+import {
+  randomIndexOf
+} from './helpers/random.js';
 
 export default class Disaster {
   constructor(title, description, solutions) {
@@ -70,5 +73,11 @@ export default class Disaster {
     this.checkVisibility(roundNumber);
   }
 
-
+  reduceSolutionsTo(n) {
+    assertType(n, Number);
+    if (this.solutions.length <= n) return;
+    const randomIndex = randomIndexOf(this.solutions);
+    this.solutions.splice(randomIndex, 1);
+    this.reduceSolutionsTo(n);
+  }
 }

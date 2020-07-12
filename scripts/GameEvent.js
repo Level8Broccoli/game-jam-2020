@@ -13,7 +13,7 @@ export default class GameEvent {
     this.disaster = disaster;
   }
 
-  static build(hotspot, disaster) {
+  static build(hotspot, disaster, solutionCount = 2) {
     assertType(hotspot, Hotspot);
     assertType(disaster, Disaster);
 
@@ -22,6 +22,8 @@ export default class GameEvent {
     assertType(hotspotCopy, Hotspot);
     assertType(disasterCopy, Disaster);
 
+    // individualize
+    disasterCopy.reduceSolutionsTo(solutionCount);
     disasterCopy.title = disaster.title.replace(/@/, hotspot.name);
 
     return new GameEvent(hotspotCopy, disasterCopy);
