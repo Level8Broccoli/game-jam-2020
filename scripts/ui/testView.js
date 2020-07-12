@@ -12,30 +12,54 @@ import GameEvent from '../GameEvent.js';
 const iconFolder = '/assets/icons/';
 
 const renderSolution = (node, solution) => {
+  const title = document.createElement('p');
+  title.classList.add('solution-title');
+  const titleText = document.createTextNode(solution.title);
+  title.append(titleText);
+  node.append(title);
+
   const paragraph = document.createElement('p');
+  paragraph.classList.add('solution-subtitle');
   const text = document.createTextNode(solution.description);
   paragraph.append(text);
+  node.append(paragraph);
+
+
   const div = document.createElement('div');
   div.classList.add('tasks');
   solution.tasks.forEach(task => {
     assertSubclass(task.type, Marble);
     div.append(renderTask(task));
   });
-  node.append(paragraph);
   node.append(div);
 };
 
 const renderGameEvent = (node, gameEvent) => {
   const heading = document.createElement('h4');
-  const text = document.createTextNode(`${gameEvent.new ? 'NEW: ' : ''}${gameEvent.disaster.title} (Rounds left: ${gameEvent.countdown})`);
+  heading.classList.add('disaster-title');
+  const text = document.createTextNode(`${gameEvent.new ? 'NEW: ' : ''}${gameEvent.disaster.title}`);
   if (gameEvent.new) {
     heading.classList.add('new');
   }
-  if (gameEvent.countdown === 1) {
-    heading.classList.add('warning');
-  }
   heading.append(text);
   node.append(heading);
+
+  const countdown = document.createElement('p');
+  countdown.classList.add('countdown');
+  const countdownText = document.createTextNode(`(Rounds left: ${gameEvent.countdown})`);
+  if (gameEvent.countdown === 1) {
+    countdown.classList.add('warning');
+  }
+
+  countdown.append(countdownText);
+  node.append(countdown);
+
+  const subheading = document.createElement('h5');
+  subheading.classList.add('disaster-subtitle');
+  const subheadingText = document.createTextNode(gameEvent.disaster.description);
+  subheading.append(subheadingText);
+  node.append(subheading);
+
   gameEvent.disaster.solutions.forEach(solution => {
     assertType(solution, Solution);
     renderSolution(node, solution);

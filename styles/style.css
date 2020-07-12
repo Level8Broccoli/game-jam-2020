@@ -12,12 +12,39 @@ main>div {
   width: 30%;
 }
 
+.disaster-title {
+  border-top: 1px solid lightgrey;
+  padding-top: 10px;
+  margin-bottom: 2px;
+}
+
+.disaster-subtitle {
+  margin: 0;
+}
+
 .new {
   color: lightseagreen;
 }
 
+.countdown.warning,
 .warning {
   color: darkred;
+}
+
+.countdown {
+  margin-top: 0;
+  color: lightslategray;
+}
+
+.solution-title {
+  font-weight: bold;
+  color: darkslategray;
+  margin-bottom: 0;
+}
+
+.solution-subtitle {
+  margin: 0;
+  padding-bottom: 10px;
 }
 
 .marbles,
