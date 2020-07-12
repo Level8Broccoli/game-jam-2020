@@ -73,7 +73,7 @@ export function selectMarble(marble) {
 }
 
 export const hasGameEnded = () => {
-  return timer.roundsLeft <= 0;
+  return timer.roundsLeft <= 0 || population.population <= 0;
 };
 
 function cleanUpObserverList() {
@@ -84,22 +84,6 @@ function cleanUpObserverList() {
   });
 }
 
-export function nextRound() {
-  observerList.forEach(obj => {
-    obj.nextRound(timer.getRoundNumber());
-  });
-
-  cleanUpObserverList();
-
-  removeSelectedMarble();
-  resources.readyRandomMarbles(3);
-
-  createNewGameEvents();
-
-  if (hasGameEnded()) {
-    Logger.log('Game End, Mama is back!');
-  }
-}
 
 function loadRandomHotspot() {
   const randomIndex = randomIndexOf(hotspots);
@@ -131,5 +115,21 @@ export function removeGameEvent(gameEvent) {
   const index = this.activeGameEvents.map(e => e === gameEvent).indexOf(true);
   if (index >= 0) {
     this.activeGameEvents.splice(index, 1);
+  }
+}
+
+export function nextRound() {
+  observerList.forEach(obj => {
+    obj.nextRound(timer.getRoundNumber());
+  });
+
+  population.nextRound();
+  cleanUpObserverList();
+  removeSelectedMarble();
+  resources.readyRandomMarbles(3);
+  createNewGameEvents();
+
+  if (hasGameEnded()) {
+    Logger.log('Game End, Mama is back!');
   }
 }

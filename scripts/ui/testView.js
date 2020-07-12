@@ -8,6 +8,7 @@ import Marble from '../marbles/Marble.js';
 import Solution from '../Solution.js';
 import Timer from '../Timer.js';
 import GameEvent from '../GameEvent.js';
+import PopulationCounter from '../PopulationCounter.js';
 
 const iconFolder = '/assets/icons/';
 
@@ -131,7 +132,6 @@ const renderMarble = (node, marble) => {
   node.append(picture);
 };
 
-
 const updateMarbles = (node, marbles) => {
   assertType(node, HTMLDivElement);
   assertType(marbles, Array);
@@ -183,11 +183,22 @@ const updateTimer = (node, timer) => {
   node.append(button);
 };
 
+function updatePopulation(node, counter) {
+  node.textContent = '';
+
+  assertType(counter, PopulationCounter);
+  const paragraph = document.createElement('p');
+  const text = document.createTextNode(`Population left: ${Math.max(Math.round(counter.population*10000)/10000, 0)} Billions`);
+  paragraph.append(text);
+  node.append(paragraph);
+}
+
 const upcomingNode = document.querySelector('.upcoming');
 const readyNode = document.querySelector('.ready');
 const usedNode = document.querySelector('.used');
 const disastersNode = document.querySelector('.disasters');
 const timerNode = document.querySelector('.timer');
+const populationNode = document.querySelector('.population');
 
 export const updateUi = () => {
   updateMarbles(upcomingNode, GameState.resources.upcoming);
@@ -195,4 +206,5 @@ export const updateUi = () => {
   updateMarbles(usedNode, GameState.resources.used);
   updateGameEvents(disastersNode, GameState.activeGameEvents);
   updateTimer(timerNode, GameState.timer);
+  updatePopulation(populationNode, GameState.population);
 };

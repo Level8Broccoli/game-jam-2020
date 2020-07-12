@@ -110,16 +110,22 @@ export default class GameEvent {
 
   calculateEffects() {
     this.disaster.freezeMarbles();
-    Logger.log(this.disaster.title, 'still going');
+    const openTasks = this.disaster.numberOfOpenTasks();
+    const allTasks = this.disaster.numberOfAllTasks();
+    const ratio = openTasks / allTasks;
+    const reducingFactor = ratio * 0.1;
+    GameState.population.factors.push(1 - reducingFactor);
   }
 
   miserableEnd() {
     Logger.log(this.disaster.title, 'ended miserably');
+    GameState.population.disasterStruck();
     this.cleanUp();
   }
 
   successfulEnd() {
-    Logger.log(this.disaster.title, 'ended successfully');
+    // Logger.log(this.disaster.title, 'ended successfully');
+    GameState.population.disasterAvoided();
     this.cleanUp();
   }
 

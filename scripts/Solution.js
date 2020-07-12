@@ -25,6 +25,10 @@ export default class Solution {
     return this.tasks.reduce((acc, task) => acc + (task.done ? 0 : 1), 0);
   }
 
+  numberOfAllTasks() {
+    return this.tasks.length;
+  }
+
   areAllTasksCompleted() {
     return this.tasks.reduce((bool, task) => task.done && bool, true);
   }
