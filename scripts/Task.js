@@ -47,15 +47,6 @@ export class TaskList {
     });
   }
 
-  addSelectedMarble(marble) {
-    assertInheritance(marble, Marble);
-
-    const task = this.list.find(task => {
-      return (marble instanceof task.type && task.empty === true);
-    });
-    task.addMarble(marble);
-  }
-
   isInProgress() {
     let flag = false;
     this.list.forEach(task => {

@@ -19,10 +19,6 @@ export default class Solution {
     this.reward = reward;
   }
 
-  addSelectedMarble() {
-    this.task.addSelectedMarble(GameState.selectedMarble);
-  }
-
   isFinished() {
     return !this.task.isInProgress();
   }
