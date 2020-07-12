@@ -153,6 +153,11 @@ const updateGameEvents = (node, gameEvents) => {
   });
 };
 
+const updateBackground = () => {
+  const node = document.querySelector('body');
+  node.style.backgroundImage = 'url(\'/assets/maps/' + GameState.image + '\')';
+};
+
 const updateTimer = (node, timer) => {
   assertType(node, HTMLDivElement);
   assertType(timer, Timer);
@@ -174,6 +179,7 @@ const updateTimer = (node, timer) => {
     GameState.nextRound();
     updateUi();
   });
+  updateBackground();
   node.append(button);
 };
 
