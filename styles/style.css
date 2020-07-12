@@ -25,7 +25,7 @@ body.body {
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-position: center center;
-  background-image: url(/assets/maps/world.jpg);
+  /* background-image: url(/assets/maps/world.jpg); */
   background-size: cover;
   background-color: #999;
   background-blend-mode: screen;
