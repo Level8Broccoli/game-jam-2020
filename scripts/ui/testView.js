@@ -9,6 +9,7 @@ import Solution from '../Solution.js';
 import Timer from '../Timer.js';
 import GameEvent from '../GameEvent.js';
 import PopulationCounter from '../PopulationCounter.js';
+import Logger from '../helpers/Logger.js';
 
 const iconFolder = '/assets/icons/';
 
@@ -156,7 +157,7 @@ const updateGameEvents = (node, gameEvents) => {
 const updateBackground = () => {
   const node = document.querySelector('body');
   const simple = false;
-  if(simple) {
+  if (simple) {
     node.style.backgroundImage = 'url(\'/assets/maps/' + GameState.image + '\')';
   } else {
     // draw the map on a canvas, add all hotspots and use it as a background image
@@ -180,7 +181,7 @@ const updateBackground = () => {
         ctx.arc(x, y, r, angleStart, angleStop);
         ctx.stroke();
       });
-      node.style.backgroundImage = 'url(\''+ canvas.toDataURL() + '\')';
+      node.style.backgroundImage = 'url(\'' + canvas.toDataURL() + '\')';
     };
   }
 };
@@ -190,15 +191,18 @@ const updateTimer = (node, timer) => {
   assertType(timer, Timer);
 
   node.textContent = '';
-  if (GameState.hasGameEnded()) {
-    return;
-  }
 
   const paragraph = document.createElement('p');
   const lastRound = timer.roundsLeft === 1;
   const text = document.createTextNode(lastRound ? 'Last Round' : `${timer.roundsLeft} Rounds left`);
   paragraph.append(text);
   node.append(paragraph);
+
+  if (GameState.end) {
+    Logger.log(GameState.reasonForEnding);
+    return;
+  }
+
   const button = document.createElement('button');
   const label = document.createTextNode(lastRound ? 'End Game' : 'Next Round');
   button.append(label);

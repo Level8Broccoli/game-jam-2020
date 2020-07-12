@@ -30,6 +30,9 @@ export const timer = new Timer(10);
 export const population = new PopulationCounter();
 export let image = 'world.jpg';
 
+export let end = false;
+export let reasonForEnding = 'There seems to be a mistake in the Code :-(';
+
 export let currentLevel;
 const observerList = [];
 
@@ -72,8 +75,14 @@ export function selectMarble(marble) {
   selectedMarble = marble;
 }
 
-export const hasGameEnded = () => {
-  return timer.roundsLeft <= 0 || population.population <= 0;
+export const checkForGameEnd = () => {
+  if (timer.roundsLeft <= 0) {
+    end = true;
+    reasonForEnding = 'Mama is back';
+  } else if (population.population <= 0) {
+    end = true;
+    reasonForEnding = 'Everyone is dead';
+  }
 };
 
 function cleanUpObserverList() {
@@ -83,7 +92,6 @@ function cleanUpObserverList() {
     observerList.splice(index, 1);
   });
 }
-
 
 function loadRandomHotspot() {
   const randomIndex = randomIndexOf(hotspots);
@@ -129,7 +137,5 @@ export function nextRound() {
   resources.readyRandomMarbles(3);
   createNewGameEvents();
 
-  if (hasGameEnded()) {
-    Logger.log('Game End, Mama is back!');
-  }
+  checkForGameEnd();
 }
