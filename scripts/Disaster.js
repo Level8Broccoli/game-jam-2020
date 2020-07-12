@@ -23,6 +23,16 @@ export default class Disaster {
     return new Disaster(d.title, d.description, d.solutions.map(s => Solution.copy(s)));
   }
 
+  getSuccessfullSolutionsAsTaskNumbers() {
+    const successfulSolutions = [];
+    this.solutions.forEach(s => {
+      if (s.areAllTasksCompleted()) {
+        successfulSolutions.push(s.numberOfAllTasks());
+      }
+    });
+    return successfulSolutions;
+  }
+
   removeMarbles() {
     this.solutions.forEach(solution => {
       solution.removeMarbles();

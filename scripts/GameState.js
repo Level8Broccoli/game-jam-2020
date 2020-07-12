@@ -140,3 +140,8 @@ export function nextRound() {
 
   checkForGameEnd();
 }
+
+export function endGame(reason) {
+  end = true;
+  reasonForEnding = reason;
+}

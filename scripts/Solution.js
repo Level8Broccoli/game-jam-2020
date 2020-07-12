@@ -33,16 +33,6 @@ export default class Solution {
     return this.tasks.reduce((bool, task) => task.done && bool, true);
   }
 
-  isFinished() {
-    let flag = false;
-    this.tasks.forEach(task => {
-      if (task.empty) {
-        flag = true;
-      }
-    });
-    return flag;
-  }
-
   removeMarbles() {
     this.tasks.forEach(task => {
       if (task.marble) {
@@ -51,10 +41,6 @@ export default class Solution {
       }
       task.empty = true;
     });
-  }
-
-  giveReward() {
-    Logger.log('give reward', this.description);
   }
 
   freezeMarbles() {

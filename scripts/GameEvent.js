@@ -124,8 +124,19 @@ export default class GameEvent {
   }
 
   successfulEnd() {
-    // Logger.log(this.disaster.title, 'ended successfully');
-    GameState.population.disasterAvoided();
+    Logger.log(this.disaster.title, 'ended successfully');
+    const successfulSolutions = this.disaster.getSuccessfullSolutionsAsTaskNumbers();
+    successfulSolutions.forEach(numOfTasks => {
+      if (numOfTasks > 4) {
+        GameState.endGame('Moonshoot');
+      } else if (numOfTasks === 1) {
+        GameState.population.disasterAvoided('small');
+      } else if (numOfTasks === 2) {
+        GameState.population.disasterAvoided('medium');
+      } else {
+        GameState.population.disasterAvoided('large');
+      }
+    });
     this.cleanUp();
   }
 
