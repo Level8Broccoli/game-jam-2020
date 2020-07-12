@@ -5,19 +5,25 @@ const randomId = () => {
 };
 
 export class MarbleA extends Marble {
-  constructor(id = randomId(), name = 'Ninja', icon = 'ninja-star') {
+  constructor(id = randomId(), name = 'Fear', icon = 'triple-skulls') {
     super(id, name, icon);
   }
 }
 
 export class MarbleB extends Marble {
-  constructor(id = randomId(), name = 'Shell', icon = 'nautilus-shell') {
+  constructor(id = randomId(), name = 'Nature', icon = 'plants-and-animals') {
     super(id, name, icon);
   }
 }
 
 export class MarbleC extends Marble {
-  constructor(id = randomId(), name = 'Cristal', icon = 'minerals') {
+  constructor(id = randomId(), name = 'Empathy', icon = 'overdose') {
+    super(id, name, icon);
+  }
+}
+
+export class MarbleD extends Marble {
+  constructor(id = randomId(), name = 'Joker', icon = 'sun') {
     super(id, name, icon);
   }
 }
