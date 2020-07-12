@@ -19,6 +19,7 @@ import {
 import {
   createNewGameEvents
 } from './GameEvent.js';
+import PopulationCounter from './PopulationCounter.js';
 
 export const resources = new Resources();
 export const disasters = [];
@@ -26,6 +27,7 @@ export const hotspots = [];
 export const activeGameEvents = [];
 export let selectedMarble = null;
 export const timer = new Timer(10);
+export const population = new PopulationCounter();
 
 export let currentLevel;
 const observerList = [];
@@ -33,6 +35,12 @@ const observerList = [];
 export function subscribeToGameRound(obj) {
   assertMethod(obj, 'nextRound');
   observerList.push(obj);
+}
+
+export function removeSubscriptionToGameRound(obj) {
+  assertMethod(obj, 'nextRound');
+  const index = observerList.indexOf(obj);
+  observerList.splice(index, 1);
 }
 
 export async function initState(level = 'World') {
@@ -65,10 +73,20 @@ export const hasGameEnded = () => {
   return timer.roundsLeft <= 0;
 };
 
+function cleanUpObserverList() {
+  const doneEvents = observerList.filter(e => e.done);
+  doneEvents.forEach(event => {
+    const index = observerList.indexOf(event);
+    observerList.splice(index, 1);
+  });
+}
+
 export function nextRound() {
   observerList.forEach(obj => {
     obj.nextRound(timer.getRoundNumber());
   });
+
+  cleanUpObserverList();
 
   removeSelectedMarble();
   resources.readyRandomMarbles(3);

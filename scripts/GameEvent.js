@@ -7,6 +7,7 @@ import * as GameState from './GameState.js';
 import {
   randomIndexOf
 } from './helpers/random.js';
+import Logger from './helpers/Logger.js';
 
 function calculateActiveEvents() {
   return GameState.activeGameEvents.length;
@@ -72,6 +73,7 @@ export default class GameEvent {
     this.hotspot = hotspot;
     this.disaster = disaster;
     this.new = true;
+    this.done = false;
 
     GameState.subscribeToGameRound(this);
   }
@@ -100,17 +102,36 @@ export default class GameEvent {
     return this.disaster.numberOfOpenTasks();
   }
 
-  end() {
+  cleanUp() {
     this.disaster.removeMarbles();
     GameState.removeGameEvent(this);
+    this.done = true;
+  }
+
+  calculateEffects() {
+    this.disaster.freezeMarbles();
+    Logger.log(this.disaster.title, 'still going');
+  }
+
+  miserableEnd() {
+    Logger.log(this.disaster.title, 'ended miserably');
+    this.cleanUp();
+  }
+
+  successfulEnd() {
+    Logger.log(this.disaster.title, 'ended successfully');
+    this.cleanUp();
   }
 
   nextRound() {
     this.countdown--;
     this.new = false;
-    if (this.countdown === 0 || this.atLeastOneTaskIsCompleted()) {
-      this.end();
+    if (this.countdown === 0) {
+      this.miserableEnd();
+    } else if (this.atLeastOneTaskIsCompleted()) {
+      this.successfulEnd();
+    } else {
+      this.calculateEffects();
     }
-    this.disaster.freezeMarbles();
   }
 }
