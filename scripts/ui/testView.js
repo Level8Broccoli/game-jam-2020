@@ -155,7 +155,34 @@ const updateGameEvents = (node, gameEvents) => {
 
 const updateBackground = () => {
   const node = document.querySelector('body');
-  node.style.backgroundImage = 'url(\'/assets/maps/' + GameState.image + '\')';
+  const simple = false;
+  if(simple) {
+    node.style.backgroundImage = 'url(\'/assets/maps/' + GameState.image + '\')';
+  } else {
+    // draw the map on a canvas, add all hotspots and use it as a background image
+    const img = new Image();
+    img.src = 'assets/maps/' + GameState.image;
+    img.onload = () => {
+      const canvas = document.createElement('canvas');
+      canvas.width = img.naturalWidth;
+      canvas.height = img.naturalHeight;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0);
+      GameState.hotspots.forEach((hotspot) => {
+        ctx.beginPath();
+        ctx.strokeStyle = '#339999';
+        ctx.lineWidth = 5;
+        const x = hotspot.position[0];
+        const y = hotspot.position[1];
+        const r = 50;
+        const angleStart = 0.0;
+        const angleStop = 2 * Math.PI;
+        ctx.arc(x, y, r, angleStart, angleStop);
+        ctx.stroke();
+      });
+      node.style.backgroundImage = 'url(\''+ canvas.toDataURL() + '\')';
+    };
+  }
 };
 
 const updateTimer = (node, timer) => {
