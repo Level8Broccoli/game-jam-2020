@@ -17,11 +17,9 @@
       <a class="navbar-item" href="/">
         <h1 class="title">Game Title</h1>
       </a>
-
     </div>
 
-    <div id="navbarBasicExample" class="navbar-menu">
-
+    <div class="navbar-menu">
       <div class="navbar-start">
         <div class="navbar-item">
           <div>
@@ -52,26 +50,33 @@
   </nav>
   <main class="container">
     <section class="section">
-      <div>
-        <h1 class="title">Upcoming</h1>
-        <h4>Known Marbles but unknown sequence</h4>
-        <div class="upcoming marbles"></div>
-        <h1 class="title">Your current Marbles</h1>
-        <h4>Available for this round</h4>
-        <div class="ready marbles"></div>
-        <h1 class="title">Used Marbles</h1>
-        <h4>Will be available again when upcoming is empty</h4>
-        <div class="used marbles"></div>
-      </div>
-      <div>
-        <h1 class="title">Disasters</h1>
-        <div class="disasters"></div>
-      </div>
-      <div>
-        <script src="scripts/main.js" type="module"></script>
-      </div>
+      <div class="disasters"></div>
     </section>
   </main>
+  <div class="marble-bar">
+    <div class="marble-bar-left">
+      <div>
+        <h1 class="title">Upcoming »</h1>
+        <h2 class="subtitle">Magic Marbles. <br />Order will be random.</h2>
+      </div>
+      <div class="upcoming marbles"></div>
+    </div>
+    <div class="marble-bar-middle">
+      <div>
+        <h1 class="title">Available »</h1>
+        <h2 class="subtitle">Use these Magic Marbles to <br />combat the disasters on the map.</h2>
+      </div>
+      <div class="ready marbles"></div>
+    </div>
+    <div class="marble-bar-right">
+      <div>
+        <h1 class="title">Used »</h1>
+        <h2 class="subtitle">Recently used Magic Marbles. <br /> Will be shuffled back when "Upcoming" is empty.</h2>
+      </div>
+      <div class="used marbles"></div>
+    </div>
+  </div>
+  <script src="scripts/main.js" type="module"></script>
 </body>
 
 </html>
