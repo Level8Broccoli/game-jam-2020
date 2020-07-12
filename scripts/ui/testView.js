@@ -272,6 +272,8 @@ const updateTimer = (node, timer) => {
     button.innerText = 'Game ended';
     if (GameState.reasonForEnding === 'Mama is back') {
       gameEndsGood();
+    } else if (GameState.reasonForEnding === 'Moonshoot') {
+      gameEndsFantastic();
     } else {
       gameEndsBad();
     }
@@ -370,6 +372,23 @@ function gameEndsGood() {
   if (alreadyRead) return;
 
   const text = 'You did good. Your blue marble still seems alive. Blue oceans, lush green forrests. Only a few of this ape-like animals lost. Your mom will be proud of you. But let her finish watching season 4.';
+
+  modal.classList.add('is-active');
+  const content = modal.querySelector('.modal-text');
+  content.innerText = text;
+
+  const button = modal.querySelector('.button');
+  button.innerText = 'Nice';
+  button.addEventListener('click', () => {
+    modal.classList.remove('is-active');
+    alreadyRead = true;
+  });
+}
+
+function gameEndsFantastic() {
+  if (alreadyRead) return;
+
+  const text = 'You have exceeded all expectations and solved every problem on earth, including climate change and NP problems. You resolved the eternal question about the afterlife and made 3 new friends.';
 
   modal.classList.add('is-active');
   const content = modal.querySelector('.modal-text');
