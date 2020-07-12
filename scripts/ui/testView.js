@@ -5,38 +5,35 @@ import {
 } from '../helpers/asserts.js';
 import * as GameState from '../GameState.js';
 import Marble from '../marbles/Marble.js';
-import Disaster from '../Disaster.js';
 import Solution from '../Solution.js';
 import Timer from '../Timer.js';
+import GameEvent from '../GameEvent.js';
 
 const iconFolder = '/assets/icons/';
 
-const renderDisaster = (node, disaster) => {
-  if (!disaster.isVisible) {
-    return;
-  }
-  const heading = document.createElement('h4');
-  const text = document.createTextNode(`${disaster.description} (Rounds left: ${disaster.countdown})`);
-  heading.append(text);
-  node.append(heading);
-  disaster.solutions.forEach(solution => {
-    assertType(solution, Solution);
-    renderSolution(node, solution);
-  });
-};
-
 const renderSolution = (node, solution) => {
   const paragraph = document.createElement('p');
-  const text = document.createTextNode('Possible Solution: ' + solution.description);
+  const text = document.createTextNode(solution.description);
   paragraph.append(text);
   const div = document.createElement('div');
   div.classList.add('tasks');
-  solution.task.list.forEach(task => {
+  solution.tasks.forEach(task => {
     assertSubclass(task.type, Marble);
     div.append(renderTask(task));
   });
   node.append(paragraph);
   node.append(div);
+};
+
+const renderGameEvent = (node, gameEvent) => {
+  const heading = document.createElement('h4');
+  const text = document.createTextNode(`${gameEvent.disaster.title}`);
+  heading.append(text);
+  node.append(heading);
+  gameEvent.disaster.solutions.forEach(solution => {
+    assertType(solution, Solution);
+    renderSolution(node, solution);
+  });
 };
 
 const checkIfSlotIsValid = (task, img) => {
@@ -115,14 +112,14 @@ const updateMarbles = (node, marbles) => {
   });
 };
 
-const updateDisasters = (node, disasters) => {
+const updateGameEvents = (node, gameEvents) => {
   assertType(node, HTMLDivElement);
-  assertType(disasters, Array);
+  assertType(gameEvents, Array);
   node.textContent = '';
 
-  disasters.filter(disaster => !disaster.finished).forEach(disaster => {
-    assertType(disaster, Disaster);
-    renderDisaster(node, disaster);
+  gameEvents.forEach(gameEvent => {
+    assertType(gameEvent, GameEvent);
+    renderGameEvent(node, gameEvent);
   });
 };
 
@@ -160,6 +157,6 @@ export const updateUi = () => {
   updateMarbles(upcomingNode, GameState.resources.upcoming);
   updateMarbles(readyNode, GameState.resources.ready);
   updateMarbles(usedNode, GameState.resources.used);
-  updateDisasters(disastersNode, GameState.disasters);
+  updateGameEvents(disastersNode, GameState.activeGameEvents);
   updateTimer(timerNode, GameState.timer);
 };

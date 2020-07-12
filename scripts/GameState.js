@@ -11,13 +11,15 @@ import {
 import Marble from './marbles/Marble.js';
 import Timer from './Timer.js';
 import Logger from './helpers/Logger.js';
+import GameEvent from './GameEvent.js';
 
 export const resources = new Resources();
 export const disasters = [];
 export const hotspots = [];
+export const activeGameEvents = [];
 export let selectedMarble = null;
 export const timer = new Timer(10);
-const level = 'World';
+
 const observerList = [];
 
 export function subscribeToGameRound(obj) {
@@ -25,7 +27,7 @@ export function subscribeToGameRound(obj) {
   observerList.push(obj);
 }
 
-export async function initState() {
+export async function initState(level = 'World') {
   initResources(resources, 10, 3);
   disasters.push(...(await loadDisasters()));
   hotspots.push(...(await loadHotspots(level)));
@@ -63,4 +65,30 @@ export function nextRound() {
   if (hasGameEnded()) {
     Logger.log('Game End, Mama is back!');
   }
+}
+
+function loadRandomHotspot() {
+  const randomIndex = Math.floor(Math.random() * hotspots.length);
+  return hotspots[randomIndex];
+}
+
+function loadRandomDisaster() {
+  const randomIndex = Math.floor(Math.random() * disasters.length);
+  return disasters[randomIndex];
+}
+
+function loadRandomEvents(n) {
+  const events = [];
+  for (let i = 0; i < n; i++) {
+    events.push(
+      new GameEvent(
+        loadRandomHotspot(), loadRandomDisaster()
+      )
+    );
+  }
+  activeGameEvents.push(...events);
+}
+
+export function startGame() {
+  loadRandomEvents(1);
 }
