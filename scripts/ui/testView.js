@@ -9,7 +9,11 @@ import Solution from '../Solution.js';
 import Timer from '../Timer.js';
 import GameEvent from '../GameEvent.js';
 import PopulationCounter from '../PopulationCounter.js';
-import Logger from '../helpers/Logger.js';
+import {
+  MarbleA,
+  MarbleB,
+  MarbleC
+} from '../marbles/MarbleImplementations.js';
 
 const iconFolder = '/assets/icons/';
 
@@ -157,11 +161,40 @@ const updateMarbles = (node, marbles) => {
   });
 };
 
+function renderMarbleGroup(node, type, num) {
+  if (num === 0) return;
+  const marble = new type();
+  const img = document.createElement('img');
+  img.src = `${iconFolder}${marble.icon}.svg`;
+  img.alt = marble.name;
+  const paragraph = document.createElement('p');
+  const label = document.createTextNode(`${num} x ${marble.name}`);
+  paragraph.append(label);
+  const picture = document.createElement('picture');
+  picture.classList.add('marble');
+  picture.append(img);
+  picture.append(paragraph);
+  node.append(picture);
+}
+
+function updateMarblesMinimized(node, marbles) {
+  assertType(node, HTMLDivElement);
+  assertType(marbles, Array);
+  node.textContent = '';
+
+  const numberOfMarblesOfTypeA = marbles.reduce((acc, m) => acc + (m.name === 'Fear' ? 1 : 0), 0);
+  const numberOfMarblesOfTypeB = marbles.reduce((acc, m) => acc + (m.name === 'Nature' ? 1 : 0), 0);
+  const numberOfMarblesOfTypeC = marbles.reduce((acc, m) => acc + (m.name === 'Empathy' ? 1 : 0), 0);
+
+  renderMarbleGroup(node, MarbleA, numberOfMarblesOfTypeA);
+  renderMarbleGroup(node, MarbleB, numberOfMarblesOfTypeB);
+  renderMarbleGroup(node, MarbleC, numberOfMarblesOfTypeC);
+}
+
 const updateGameEvents = (node, gameEvents) => {
   assertType(node, HTMLDivElement);
   assertType(gameEvents, Array);
   node.textContent = '';
-
 
   gameEvents.forEach(gameEvent => {
     assertType(gameEvent, GameEvent);
@@ -256,9 +289,9 @@ const populationNode = document.querySelector('.population');
 const locationNode = document.querySelector('.location');
 
 export const updateUi = () => {
-  updateMarbles(upcomingNode, GameState.resources.upcoming);
+  updateMarblesMinimized(upcomingNode, GameState.resources.upcoming);
   updateMarbles(readyNode, GameState.resources.ready);
-  updateMarbles(usedNode, GameState.resources.used);
+  updateMarblesMinimized(usedNode, GameState.resources.used);
   updateGameEvents(disastersNode, GameState.activeGameEvents);
   updateTimer(timerNode, GameState.timer);
   updatePopulation(populationNode, GameState.population);

@@ -32,6 +32,10 @@ main>div {
   width: 30%;
 }
 
+.marble {
+  margin-right: 20px;
+}
+
 .marble-bar {
   background-color: #363636;
   color: #fff;

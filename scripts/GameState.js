@@ -50,7 +50,7 @@ export function removeSubscriptionToGameRound(obj) {
 export async function initState(level = 'World') {
   currentLevel = level;
   Logger.log(`Current Map: ${level}`);
-  initResources(resources, 10, 3);
+  initResources(resources, 12, 3);
   disasters.push(...(await loadDisasters()));
   const world = await loadRegion(level);
   image = world.image;

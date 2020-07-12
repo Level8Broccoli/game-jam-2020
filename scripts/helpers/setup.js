@@ -33,7 +33,10 @@ export const loadRegion = async (location) => {
     return new Hotspot(h.name, h.position);
   });
   const image = region.image;
-  return {image: image, hotspots: hotspots};
+  return {
+    image: image,
+    hotspots: hotspots
+  };
 };
 
 export const loadDisasters = async () => {
