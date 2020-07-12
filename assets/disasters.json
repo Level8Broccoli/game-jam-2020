@@ -1,136 +1,221 @@
-[
-
-{
-"title": "@ is burning", "description": "???",
-"solutions": [
-    {"title": "Open all fire hydrants", "marbles": [1, 2, 3]},
-    {"title": "Water it with helicopters", "marbles": [1, 2, 3]},
-    {"title": "Get rid of all oxygen", "marbles": [1, 2, 3]}
-]
-},
-
-{
-"title": "Virus is spreading in @", "description": "???",
-"solutions": [
-    {"title": "Vaccinate everyone", "marbles": [1, 2, 3]},
-    {"title": "Give free face masks for everyone", "marbles": [1, 2, 3]}
-]
-},
-
-{
-"title": "@ has an earthquake", "description": "???",
-"solutions": [
-    {"title": "Strengthen local buildings", "marbles": [1, 2, 3]},
-    {"title": "Give everyone free holidays at another place", "marbles": [1, 2, 3]}
-]
-},
-
-{
-"title": "@ is struck by thunder", "description": "???",
-"solutions": [
-    {"title": "Build lighning rods", "marbles": [1, 2, 3]},
-    {"title": "Give umbrellas to everyone, with metal handles", "marbles": [1, 2, 3]},
-    {"title": "Go into the church and pray", "marbles": [1, 2, 3]}
-]
-},
-
-{
-"title": "Airplane crashes on @", "description": "???",
-"solutions": [
-    {"title": "Shoot a missile on it", "marbles": [1, 2, 3]},
-    {"title": "Escort it with the air force", "marbles": [1, 2, 3]}
-]
-},
-    
-{
-"title": "is invaded by aliens", "description": "???",
-"solutions": [
-    {"title": "Build laser arrays", "marbles": [1, 2, 3]},
-    {"title": "Convince them to help", "marbles": [1, 2, 3]}
-]
-},
-
-{
-"title": "@ has child malnournishment", "description": "???",
-"solutions": [
-    {"title": "Provide Food", "marbles": [1, 2, 3]},
-    {"title": "Education for Parents", "marbles": [1, 2, 3]}
-]
-},
-
-{
-"title": "@ is flooded", "description": "???",
-"solutions": [
-    {"title": "Dig Rivers", "marbles": [1, 2, 3]},
-    {"title": "Put Sandbags", "marbles": [1, 2, 3]}
-]
-},
-
-{
-"title": "Radiation is in @", "description": "???",
-"solutions": [
-    {"title": "Provide Pills", "marbles": [1, 2, 3]},
-    {"title": "Get lead armor", "marbles": [1, 2, 3]},
-    {"title": "Hide in Bunkers", "marbles": [1, 2, 3]}
-]
-},
-
-{
-"title": "People panic in @", "description": "???",
-"solutions": [
-    {"title": "Provide some mental health specialists", "marbles": [1, 2, 3]},
-    {"title": "Let the police get rid of them", "marbles": [1, 2, 3]}
-]
-},
-
-{
-"title": "Ivy is getting the upperhand in @", "description": "???",
-"solutions": [
-    {"title": "Buy pesticides", "marbles": [1, 2, 3]},
-    {"title": "Plant stuff which kills Ivy", "marbles": [1, 2, 3]}
-]
-},
-  
-
-{
-"title": "Climate is getting out of control in @", "description": "???",
-"solutions": [
-    {"title": "Ask children, the seem to more effective", "marbles": [1, 2, 3]},
-    {"title": "Disallow burning fossil fuel", "marbles": [1, 2, 3]},
-    {"title": "Store CO2 in ...", "marbles": [1, 2, 3]}
-]
-},
-
-{
-"title": "Everyone is surveilled in @", "description": "???",
-"solutions": [
-    {"title": "Educate people", "marbles": [1, 2, 3]},
-    {"title": "Make a new law", "marbles": [1, 2, 3]},
-    {"title": "Extradite Snowden", "marbles": [1, 2, 3]}
-]
-},
-  
-{
-"title": "War is in @", "description": "???",
-"solutions": [
-    {"title": "Let the people fight the war who make the decisions", "marbles": [1, 2, 3]},
-    {"title": "Give the other side free candy", "marbles": [1, 2, 3]}
-]
-},
-
-{
-"title": "Electricity black out in @", "description": "???",
-"solutions": [
-    {"title": "Build another power plant", "marbles": [1, 2, 3]},
-    {"title": "Build a super capacitor", "marbles": [1, 2, 3]}
-]
-},
-    
-
-{
-"title": "@ is struk by a gamma burst ray", "description": "???",
-"solutions": [
-]
-}
-
+[{
+        "title": "@ is burning",
+        "description": "???",
+        "solutions": [{
+                "title": "Open all fire hydrants",
+                "marbles": [1, 2, 3]
+            },
+            {
+                "title": "Water it with helicopters",
+                "marbles": [1, 2, 3]
+            },
+            {
+                "title": "Get rid of all oxygen",
+                "marbles": [1, 2, 3]
+            }
+        ]
+    },
+    {
+        "title": "Virus is spreading in @",
+        "description": "???",
+        "solutions": [{
+                "title": "Vaccinate everyone",
+                "marbles": [1, 2, 3]
+            },
+            {
+                "title": "Give free face masks for everyone",
+                "marbles": [1, 2, 3]
+            }
+        ]
+    },
+    {
+        "title": "@ has an earthquake",
+        "description": "???",
+        "solutions": [{
+                "title": "Strengthen local buildings",
+                "marbles": [1, 2, 3]
+            },
+            {
+                "title": "Give everyone free holidays at another place",
+                "marbles": [1, 2, 3]
+            }
+        ]
+    },
+    {
+        "title": "@ is struck by thunder",
+        "description": "???",
+        "solutions": [{
+                "title": "Build lighning rods",
+                "marbles": [1, 2, 3]
+            },
+            {
+                "title": "Give umbrellas to everyone, with metal handles",
+                "marbles": [1, 2, 3]
+            },
+            {
+                "title": "Go into the church and pray",
+                "marbles": [1, 2, 3]
+            }
+        ]
+    },
+    {
+        "title": "Airplane crashes on @",
+        "description": "???",
+        "solutions": [{
+                "title": "Shoot a missile on it",
+                "marbles": [1, 2, 3]
+            },
+            {
+                "title": "Escort it with the air force",
+                "marbles": [1, 2, 3]
+            }
+        ]
+    },
+    {
+        "title": "is invaded by aliens",
+        "description": "???",
+        "solutions": [{
+                "title": "Build laser arrays",
+                "marbles": [1, 2, 3]
+            },
+            {
+                "title": "Convince them to help",
+                "marbles": [1, 2, 3]
+            }
+        ]
+    },
+    {
+        "title": "@ has child malnournishment",
+        "description": "???",
+        "solutions": [{
+                "title": "Provide Food",
+                "marbles": [1, 2, 3]
+            },
+            {
+                "title": "Education for Parents",
+                "marbles": [1, 2, 3]
+            }
+        ]
+    },
+    {
+        "title": "@ is flooded",
+        "description": "???",
+        "solutions": [{
+                "title": "Dig Rivers",
+                "marbles": [1, 2, 3]
+            },
+            {
+                "title": "Put Sandbags",
+                "marbles": [1, 2, 3]
+            }
+        ]
+    },
+    {
+        "title": "Radiation is in @",
+        "description": "???",
+        "solutions": [{
+                "title": "Provide Pills",
+                "marbles": [1, 2, 3]
+            },
+            {
+                "title": "Get lead armor",
+                "marbles": [1, 2, 3]
+            },
+            {
+                "title": "Hide in Bunkers",
+                "marbles": [1, 2, 3]
+            }
+        ]
+    },
+    {
+        "title": "People panic in @",
+        "description": "???",
+        "solutions": [{
+                "title": "Provide some mental health specialists",
+                "marbles": [1, 2, 3]
+            },
+            {
+                "title": "Let the police get rid of them",
+                "marbles": [1, 2, 3]
+            }
+        ]
+    },
+    {
+        "title": "Ivy is getting the upperhand in @",
+        "description": "???",
+        "solutions": [{
+                "title": "Buy pesticides",
+                "marbles": [1, 2, 3]
+            },
+            {
+                "title": "Plant stuff which kills Ivy",
+                "marbles": [1, 2, 3]
+            }
+        ]
+    },
+    {
+        "title": "Climate is getting out of control in @",
+        "description": "???",
+        "solutions": [{
+                "title": "Ask children, the seem to more effective",
+                "marbles": [1, 2, 3]
+            },
+            {
+                "title": "Disallow burning fossil fuel",
+                "marbles": [1, 2, 3]
+            },
+            {
+                "title": "Store CO2 in ...",
+                "marbles": [1, 2, 3]
+            }
+        ]
+    },
+    {
+        "title": "Everyone is surveilled in @",
+        "description": "???",
+        "solutions": [{
+                "title": "Educate people",
+                "marbles": [1, 2, 3]
+            },
+            {
+                "title": "Make a new law",
+                "marbles": [1, 2, 3]
+            },
+            {
+                "title": "Extradite Snowden",
+                "marbles": [1, 2, 3]
+            }
+        ]
+    },
+    {
+        "title": "War is in @",
+        "description": "???",
+        "solutions": [{
+                "title": "Let the people fight the war who make the decisions",
+                "marbles": [1, 2, 3]
+            },
+            {
+                "title": "Give the other side free candy",
+                "marbles": [1, 2, 3]
+            }
+        ]
+    },
+    {
+        "title": "Electricity black out in @",
+        "description": "???",
+        "solutions": [{
+                "title": "Build another power plant",
+                "marbles": [1, 2, 3]
+            },
+            {
+                "title": "Build a super capacitor",
+                "marbles": [1, 2, 3]
+            }
+        ]
+    },
+    {
+        "title": "@ is struk by a gamma burst ray",
+        "description": "???",
+        "solutions": []
+    }
 ]
