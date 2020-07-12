@@ -42,7 +42,7 @@ function createNewRandomGameEvents(maxNewEvents, maxSolutions) {
   const possibleHotspotNames = getHotspotNamesNotInUse();
   if (possibleHotspotNames.length === 0) return;
   const numberOfSolutions = Math.max(Math.min(Math.ceil(Math.random() * maxSolutions), 3), 1);
-  const lengthOfCountdown = numberOfSolutions === 1 ? Math.ceil(Math.random() * 2) : Math.min(Math.ceil(Math.random() * 4), 2);
+  const lengthOfCountdown = numberOfSolutions !== 1 ? Math.ceil(Math.random() * 2) : Math.max(Math.ceil(Math.random() * 4), 2);
 
   const newEvent = GameEvent.build(randomHotspot(possibleHotspotNames), randomDisaster(), numberOfSolutions, lengthOfCountdown);
   GameState.activeGameEvents.push(newEvent);
