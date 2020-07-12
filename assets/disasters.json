@@ -1,6 +1,6 @@
 [{
         "title": "@ is burning",
-        "description": "???",
+        "description": "We have to increase entropy.",
         "solutions": [{
                 "title": "Open all fire hydrants",
                 "description": "Until the firefighters closed them, the fire should be gone.",
@@ -25,7 +25,7 @@
     },
     {
         "title": "Virus is spreading in @",
-        "description": "???",
+        "description": "If they were aware that on every body there are more entities than humans on this blue marble …",
         "solutions": [{
                 "title": "Silently vaccinate everyone",
                 "description": "Be careful that not one single child gets autism during this time.",
@@ -40,7 +40,7 @@
     },
     {
         "title": "There is an an earthquake near @",
-        "description": "???",
+        "description": "Bowel movements.",
         "solutions": [{
                 "title": "Strengthen local buildings",
                 "description": "With Jet-Fuel safe steel.",
@@ -60,7 +60,7 @@
     },
     {
         "title": "@ is struck by a thunderstorm",
-        "description": "???",
+        "description": "I spend a lot of time wachting the humans while they try to photograph a thunder.",
         "solutions": [{
                 "title": "Build lightning rods",
                 "description": "I have a moral dilemma. Should I put them on churches or not?",
@@ -80,7 +80,7 @@
     },
     {
         "title": "Airplane crashes in @",
-        "description": "???",
+        "description": "Pilot fell asleep and the junior officer doesn't know what all the buttons are for. Emergency descent definitively wasn't the right one.",
         "solutions": [{
                 "title": "Hack the friend/foe identification",
                 "description": "The military should care about it.",
@@ -100,10 +100,10 @@
     },
     {
         "title": "@ is invaded by aliens",
-        "description": "???",
+        "description": "They mentioned that they predicted that humans will obliterate them. Sounds legit.",
         "solutions": [{
                 "title": "Build self-targeting laser arrays",
-                "description": "???",
+                "description": "Put some reasonable rules inside the AI. Don't like to repeat this Terminator mistake again.",
                 "tasks": [1, 2, 3]
             },
             {
@@ -125,7 +125,7 @@
     },
     {
         "title": "@ has too many malnourished children",
-        "description": "???",
+        "description": "Why didn't they stay at this wonderful places where there is enough water and fruits for everyone?",
         "solutions": [{
                 "title": "Bushes and trees immediately grow some fruits",
                 "description": "You gave them farkleberries and have no idea why they don't love you.",
@@ -150,7 +150,7 @@
     },
     {
         "title": "@ is flooded",
-        "description": "???",
+        "description": "They were just invented to water all this plants out in the nowhere. But humans could not resist and had to build every major city close to rivers and oceans.",
         "solutions": [{
                 "title": "Move around some earth",
                 "description": "Through Earthquake? Divert magma streams? Let ants build some tunnels?",
@@ -165,7 +165,7 @@
     },
     {
         "title": "Radiation is in @",
-        "description": "???",
+        "description": "Cheap method to keep humans out of the area. Allow the nature to grow freely.",
         "solutions": [{
                 "title": "Provide anti-radiation drugs",
                 "description": "No don't mix it with something else. This is not a sociale experiment.",
@@ -185,7 +185,7 @@
     },
     {
         "title": "Bees are extinct @",
-        "description": "???",
+        "description": "How invented the idea that boring green lawns in front of every house are amazing? I spent centuries to give all this flowers beautiful colors.",
         "solutions": [{
                 "title": "Make flowers even stronger",
                 "description": "Last year you gave them ability to grow through streets, but seems this was not enough.",
@@ -205,7 +205,7 @@
     },
     {
         "title": "People panic in @",
-        "description": "???",
+        "description": "I only wanted them to fear heights, before they jump, and not afterwards.",
         "solutions": [{
                 "title": "Provide psychological first aid",
                 "description": "Maybe do it through a YouTube hit. But how to get the clicks?",
@@ -230,7 +230,7 @@
     },
     {
         "title": "Ivy is getting the upperhand in @",
-        "description": "???",
+        "description": "I thought they see how useful it may be. But I already failed with hemp. Should have known it.",
         "solutions": [{
                 "title": "Get some herbicides",
                 "description": "The natural ones. Whatever the word natural means.",
@@ -245,7 +245,7 @@
     },
     {
         "title": "Climate is getting out of control in @",
-        "description": "???",
+        "description": "Sometimes I ask myself if it is not easier to just wait and let the problem solve itself.",
         "solutions": [{
                 "title": "Ask children",
                 "description": "They seem to be more interested in this …",
@@ -265,7 +265,7 @@
     },
     {
         "title": "Everyone is surveilled in @",
-        "description": "???",
+        "description": "They fear each other more than they should fear me.",
         "solutions": [{
                 "title": "Pay the education fee for everyone",
                 "description": "Didn't I do that already because of almost every other problem?",
@@ -290,7 +290,7 @@
     },
     {
         "title": "War is in @",
-        "description": "???",
+        "description": "Ok crocodiles were not scarry enough. Lions also not. Hippos, check, but we don't have enough. But that they had to invent something so scarry themself.",
         "solutions": [{
                 "title": "Let the ones fight the war, who make the decisions",
                 "description": "Shortest war ever",
@@ -302,6 +302,11 @@
                 "tasks": [1, 2, 3]
             },
             {
+                "title": "Draw new borders",
+                "description": "They seem to have a knack for very straight lines.",
+                "tasks": [1, 2, 3]
+            },
+            {
                 "title": "Give the other side free candy",
                 "description": "Only blue M&Ms.",
                 "tasks": [1, 2, 3]
@@ -310,7 +315,7 @@
     },
     {
         "title": "@ is overpopulated",
-        "description": "???",
+        "description": "With what? Humans or the farting animals they all want to eat?",
         "solutions": [{
                 "title": "Make birth control available for everyone",
                 "description": "This time for men.",
@@ -330,7 +335,7 @@
     },
     {
         "title": "Electricity black out in @",
-        "description": "???",
+        "description": "Will they every be able to find this grand unified theory? And yes, we sometimes play the dice.",
         "solutions": [{
                 "title": "Build another power plant",
                 "description": "They're not ready for fusion. Lead them on the wrong path for another 30 years.",
@@ -350,7 +355,7 @@
     },
     {
         "title": "@ is struck by a gamma burst ray",
-        "description": "???",
+        "description": "Not even Forrest could outrun it.",
         "solutions": [{
             "title": "Hope",
             "description": "…",
