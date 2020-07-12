@@ -12,7 +12,7 @@
 
 <body class="body">
 
-  <nav class="navbar is-transparent is-fixed-top" role="navigation" aria-label="main navigation">
+  <nav class="navbar is-transparent is-fixed-top is-dark" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <a class="navbar-item" href="/">
         <h1 class="title">Game Title</h1>
@@ -24,16 +24,22 @@
 
       <div class="navbar-start">
         <div class="navbar-item">
-          Location:&nbsp;<strong class="location"></strong>
+          <div>
+            Location&nbsp;<p> <strong class="location"></strong> </p>
+          </div>
         </div>
       </div>
 
       <div class="navbar-end">
         <div class="navbar-item">
-          <div class="population"></div>
+          <div>Population&nbsp;<strong class="population"></strong></div>
         </div>
         <div class="navbar-item">
-          <div class="timer"></div>
+          <div>Rounds left
+            <p> <strong class="timer"></strong> </p>
+          </div>
+        </div>
+        <div class="navbar-item">
           <div class="buttons">
             <a class="button is-primary nextRound">
               <strong>Next Round</strong>
@@ -57,16 +63,10 @@
         <div class="used marbles"></div>
       </div>
       <div>
-
         <h1 class="title">Disasters</h1>
         <div class="disasters"></div>
       </div>
       <div>
-
-
-        <h1 class="title">Log</h1>
-        <h4>More details in the console</h4>
-        <div class="log"></div>
         <script src="scripts/main.js" type="module"></script>
       </div>
     </section>

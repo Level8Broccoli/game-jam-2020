@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   await GameState.initState(currentLevel);
   GameState.startGame();
+  TestView.initUi();
   TestView.updateUi();
 });
 

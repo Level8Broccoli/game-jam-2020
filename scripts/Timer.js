@@ -9,6 +9,7 @@ export default class Timer {
   }
 
   nextRound() {
+    console.assert(true, 'next Round');
     this.roundsLeft--;
   }
 }

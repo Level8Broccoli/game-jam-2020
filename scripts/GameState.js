@@ -127,6 +127,7 @@ export function removeGameEvent(gameEvent) {
 }
 
 export function nextRound() {
+  console.log(timer.getRoundNumber());
   observerList.forEach(obj => {
     obj.nextRound(timer.getRoundNumber());
   });

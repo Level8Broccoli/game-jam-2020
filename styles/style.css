@@ -8,6 +8,11 @@ main {
   display: flex;
 }
 
+.navbar strong,
+.navbar .title {
+  color: white;
+}
+
 html {
   height: 100%;
 }

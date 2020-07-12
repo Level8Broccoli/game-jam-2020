@@ -187,29 +187,22 @@ const updateBackground = () => {
 };
 
 const updateTimer = (node, timer) => {
-  assertType(node, HTMLDivElement);
   assertType(timer, Timer);
 
   node.textContent = '';
 
-  const paragraph = document.createElement('p');
   const lastRound = timer.roundsLeft === 1;
-  const text = document.createTextNode(lastRound ? 'Last Round' : `${timer.roundsLeft} Rounds left`);
-  paragraph.append(text);
-  node.append(paragraph);
+  const text = document.createTextNode(lastRound ? 'Last Round' : `${timer.roundsLeft}`);
+  node.append(text);
 
   const button = document.querySelector('.nextRound');
 
   if (GameState.end) {
     button.classList.add('is-static');
+    button.innerText = 'Game ended';
     Logger.log(GameState.reasonForEnding);
     return;
   }
-
-  button.addEventListener('click', () => {
-    GameState.nextRound();
-    updateUi();
-  });
 
   updateBackground();
 };
@@ -219,7 +212,7 @@ function updatePopulation(node, counter) {
 
   assertType(counter, PopulationCounter);
   const paragraph = document.createElement('p');
-  const text = document.createTextNode(`Population: ${Math.max(Math.round(counter.population*10000)/10000, 0)} Billions`);
+  const text = document.createTextNode(`${Math.max(Math.round(counter.population*10000)/10000, 0)} Billions`);
   paragraph.append(text);
   node.append(paragraph);
 }
@@ -248,3 +241,12 @@ export const updateUi = () => {
   updatePopulation(populationNode, GameState.population);
   updateWorld(locationNode, GameState.currentLevel);
 };
+
+export function initUi() {
+  const button = document.querySelector('.nextRound');
+
+  button.addEventListener('click', () => {
+    GameState.nextRound();
+    updateUi();
+  });
+}
