@@ -2,7 +2,7 @@ import Resources from './Resources.js';
 import {
   initResources,
   loadDisasters,
-  loadHotspots
+  loadRegion
 } from './helpers/setup.js';
 import {
   assertInheritance,
@@ -26,6 +26,7 @@ export const hotspots = [];
 export const activeGameEvents = [];
 export let selectedMarble = null;
 export const timer = new Timer(10);
+export let image = 'world.jpg';
 
 export let currentLevel;
 const observerList = [];
@@ -40,7 +41,9 @@ export async function initState(level = 'World') {
   Logger.log(`Current Map: ${level}`);
   initResources(resources, 10, 3);
   disasters.push(...(await loadDisasters()));
-  hotspots.push(...(await loadHotspots(level)));
+  const world = await loadRegion(level);
+  image = world.image;
+  hotspots.push(...world.hotspots);
   subscribeToGameRound(timer);
 }
 
