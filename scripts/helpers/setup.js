@@ -5,11 +5,9 @@ import {
   MarbleC
 } from '../marbles/MarbleImplementations.js';
 import Solution from '../Solution.js';
-import {
-  TaskList
-} from '../Task.js';
-import GameChanger from '../GameChanger.js';
 import Disaster from '../Disaster.js';
+import Hotspot from '../Hotspot.js';
+import Task from '../Task.js';
 
 export const initResources = (res, marbleCount, readyCount) => {
   Logger.log('filled bag randomly', marbleCount, 'starting with', readyCount);
@@ -28,55 +26,24 @@ export const initResources = (res, marbleCount, readyCount) => {
   res.readyRandomMarbles(readyCount);
 };
 
-export const initDisasters = async () => {
+export const loadHotspots = async (location) => {
+  const response = await fetch('/assets/maps/maps.json');
+  const region = (await response.json()).find(e => e.name === location);
+  return region.hotspots.map(h => {
+    return new Hotspot(h.name, h.position);
+  });
+};
+
+export const loadDisasters = async () => {
   const response = await fetch('/assets/disasters.json');
-  const disastersTemplate = await response.json();
-  console.log(disastersTemplate);
+  const disasters = (await response.json());
 
-  const disasters = [];
-
-  const solutions1 = [];
-  const solution1 = new Solution('Douse the fire', new TaskList([{
-    count: 2,
-    type: MarbleA
-  }]), new GameChanger());
-  solutions1.push(solution1);
-  const solution2 = new Solution('Remove Air', new TaskList([{
-    count: 1,
-    type: MarbleB
-  }, {
-    count: 2,
-    type: MarbleC
-  }]), new GameChanger());
-  solutions1.push(solution2);
-  const solution3 = new Solution('Find a cure', new TaskList([{
-    count: 7,
-    type: MarbleB
-  }, {
-    count: 5,
-    type: MarbleC
-  }]), new GameChanger());
-  solutions1.push(solution3);
-
-  const disaster1 = new Disaster('Paris is burnig', solutions1, 0, 4, new GameChanger());
-
-  const solutions2 = [];
-  const solution4 = new Solution('Unicorns', new TaskList([{
-    count: 1,
-    type: MarbleA
-  }]), new GameChanger());
-  solutions2.push(solution4);
-  const solution5 = new Solution('Lifeboats', new TaskList([{
-    count: 1,
-    type: MarbleC
-  }, {
-    count: 1,
-    type: MarbleA
-  }]), new GameChanger());
-  solutions2.push(solution5);
-
-  const disaster2 = new Disaster('London underwater', solutions2, 2, 3, new GameChanger());
-  disasters.push(disaster1, disaster2);
-
-  return disasters;
+  return disasters.map(d => {
+    return new Disaster(d.title, d.description, d.solutions.map(s => {
+      return new Solution(s.title, s.description, s.tasks.map(t => {
+        const marbleType = t === 1 ? MarbleA : (t === 2 ? MarbleB : MarbleC);
+        return new Task(marbleType);
+      }));
+    }));
+  });
 };

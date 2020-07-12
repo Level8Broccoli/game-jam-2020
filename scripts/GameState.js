@@ -1,7 +1,8 @@
 import Resources from './Resources.js';
 import {
   initResources,
-  initDisasters
+  loadDisasters,
+  loadHotspots
 } from './helpers/setup.js';
 import {
   assertInheritance,
@@ -13,8 +14,10 @@ import Logger from './helpers/Logger.js';
 
 export const resources = new Resources();
 export const disasters = [];
+export const hotspots = [];
 export let selectedMarble = null;
 export const timer = new Timer(10);
+const level = 'World';
 const observerList = [];
 
 export function subscribeToGameRound(obj) {
@@ -24,8 +27,8 @@ export function subscribeToGameRound(obj) {
 
 export async function initState() {
   initResources(resources, 10, 3);
-  const response = await initDisasters();
-  disasters.push(...response);
+  disasters.push(...(await loadDisasters()));
+  hotspots.push(...(await loadHotspots(level)));
   subscribeToGameRound(timer);
 }
 

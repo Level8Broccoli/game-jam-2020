@@ -2,9 +2,7 @@ import {
   assertType
 } from '../helpers/asserts.js';
 import * as GameState from '../GameState.js';
-import {
-  Task
-} from '../Task.js';
+import Task from '../Task.js';
 
 export default class Marble {
   constructor(id, name, icon) {

@@ -1,11 +1,10 @@
 import {
-  assertType,
   assertSubclass,
   assertInheritance
 } from './helpers/asserts.js';
 import Marble from './marbles/Marble.js';
 
-export class Task {
+export default class Task {
   constructor(type) {
     assertSubclass(type, Marble);
     this.type = type;
@@ -27,33 +26,5 @@ export class Task {
 
   freeze() {
     this.frozen = true;
-  }
-}
-
-export class TaskList {
-  constructor(taskList) {
-    this.list = [];
-    assertType(taskList, Array);
-    taskList.forEach(({
-      count,
-      type
-    }) => {
-      assertType(count, Number);
-      assertSubclass(type, Marble);
-
-      for (let i = 0; i < count; i++) {
-        this.list.push(new Task(type));
-      }
-    });
-  }
-
-  isInProgress() {
-    let flag = false;
-    this.list.forEach(task => {
-      if (task.empty) {
-        flag = true;
-      }
-    });
-    return flag;
   }
 }

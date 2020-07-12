@@ -1,29 +1,30 @@
 import {
   assertType
 } from './helpers/asserts.js';
-import {
-  TaskList
-} from './Task.js';
-import GameChanger from './GameChanger.js';
 import Logger from './helpers/Logger.js';
 
 export default class Solution {
-  constructor(description, task, reward) {
+  constructor(title, description, tasks) {
+    assertType(title, String);
     assertType(description, String);
-    assertType(task, TaskList);
-    assertType(reward, GameChanger);
+    assertType(tasks, Array);
 
     this.description = description;
-    this.task = task;
-    this.reward = reward;
+    this.tasks = tasks;
   }
 
   isFinished() {
-    return !this.task.isInProgress();
+    let flag = false;
+    this.tasks.forEach(task => {
+      if (task.empty) {
+        flag = true;
+      }
+    });
+    return flag;
   }
 
   removeMarbles() {
-    this.task.list.forEach(task => {
+    this.tasks.forEach(task => {
       if (task.marble) {
         task.marble.remove();
         task.marble = null;
@@ -37,7 +38,7 @@ export default class Solution {
   }
 
   freezeMarbles() {
-    this.task.list.forEach(task => {
+    this.tasks.forEach(task => {
       if (task.marble) {
         task.freeze();
       }

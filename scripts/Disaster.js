@@ -1,25 +1,19 @@
 import {
   assertType
 } from './helpers/asserts.js';
-import GameChanger from './GameChanger.js';
 import Solution from './Solution.js';
 import * as GameState from './GameState.js';
 
 export default class Disaster {
-  constructor(description, solutions, delay, countdown, consequence) {
+  constructor(title, description, solutions) {
+    assertType(title, String);
     assertType(description, String);
     assertType(solutions, Array);
-    assertType(delay, Number);
-    assertType(countdown, Number);
-    assertType(consequence, GameChanger);
 
+    this.title = title;
     this.description = description;
     this.solutions = solutions;
-    this.delay = delay;
-    this.countdown = countdown + delay;
-    this.consequence = consequence;
     this.hasEnded = false;
-    this.isVisible = delay === 0;
     GameState.subscribeToGameRound(this);
   }
 
