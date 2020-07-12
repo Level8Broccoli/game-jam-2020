@@ -1,7 +1,9 @@
 
 export default class PopulationCounter {
-  constructor() {
-    this.population = 7.594; // current world population in Billions (de: Milliarden)
+  constructor(startPopulation = 7.594) {
+    // current world population 7.594 Billions (de: Milliarden)
+    this.population = startPopulation;
+    this.startPopulation = startPopulation;
     this.factors = [];
   }
 
@@ -14,11 +16,11 @@ export default class PopulationCounter {
   }
 
   disasterStruck() {
-    this.reduceBy(0.5);
+    this.reduceBy(this.startPopulation / 15);
   }
 
   disasterAvoided() {
-    this.addToBy(0.3);
+    this.addToBy(this.startPopulation / 25);
   }
 
   nextRound() {
